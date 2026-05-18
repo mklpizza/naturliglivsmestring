@@ -15,8 +15,8 @@ collections:
     label: Sider
     label_singular: Side
     folder: content/pages
-    create: false
-    delete: false
+    create: true
+    delete: true
     slug: "{{slug}}"
     fields:
       - { label: "Sidetitel", name: title, widget: string }
@@ -25,3 +25,18 @@ collections:
       - { label: "Billede beskrivelse", name: imageAlt, widget: string, hint: "Beskriv billedet kort, fx 'Person der sidder roligt ved vandet'" }
       - { label: "Uddrag", name: excerpt, widget: text, hint: "Vises under sidetitlen i headeren" }
       - { label: "Indhold", name: body, widget: markdown }
+
+  - name: settings
+    label: Indstillinger
+    files:
+      - name: navigation
+        label: Menu (navigation)
+        file: content/navigation.json
+        fields:
+          - label: "Menupunkter"
+            name: items
+            widget: list
+            summary: "{{fields.label}} → {{fields.href}}"
+            fields:
+              - { label: "Navn i menu", name: label, widget: string, hint: "Det der vises i menuen, fx 'Om mig'" }
+              - { label: "Link til side", name: href, widget: string, hint: "Starter med / efterfulgt af sidens slug, fx /om-mig" }
