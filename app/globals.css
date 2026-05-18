@@ -1,26 +1,190 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-cream: #F5F0E8;
+  --color-cream-dark: #EDE6D8;
+  --color-sage: #7C9885;
+  --color-sage-dark: #5A7A65;
+  --color-sage-light: #EBF0EC;
+  --color-terracotta: #C67B5C;
+  --color-terracotta-light: #F0DDD4;
+  --color-brown: #3D3529;
+  --color-brown-muted: #6B5E52;
+  --color-sand: #D4C4A8;
+  --color-sand-light: #F7F3EC;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-lora), Georgia, serif;
+  --font-body: var(--font-raleway), system-ui, sans-serif;
+
+  --radius-organic: 18px;
+  --shadow-soft: 0 4px 24px rgba(61, 53, 41, 0.08);
+  --shadow-card: 0 2px 16px rgba(61, 53, 41, 0.06);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #F5F0E8;
+    --foreground: #3D3529;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F5F0E8;
+  color: #3D3529;
+  font-family: var(--font-body);
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.3;
+  color: #3D3529;
+}
+
+.prose-naturlig h2 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #3D3529;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-naturlig h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #5A7A65;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-naturlig p {
+  margin-bottom: 1.25rem;
+  color: #3D3529;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.prose-naturlig ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.25rem;
+}
+
+.prose-naturlig ul li {
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.prose-naturlig ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: #7C9885;
+  font-weight: 600;
+}
+
+.prose-naturlig strong {
+  color: #3D3529;
+  font-weight: 600;
+}
+
+.prose-naturlig em {
+  color: #6B5E52;
+}
+
+/* Two-column layout: text + image side by side */
+.prose-naturlig .billede-sektion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin: 2.5rem 0;
+}
+
+.prose-naturlig .billede-sektion > div:has(> p > img),
+.prose-naturlig .billede-sektion > div:has(> img) {
+  align-self: center;
+}
+
+@media (max-width: 768px) {
+  .prose-naturlig .billede-sektion {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Standalone images in markdown */
+.prose-naturlig img {
+  width: 100%;
+  border-radius: 18px;
+  display: block;
+  margin: 2rem 0;
+  object-fit: cover;
+  box-shadow: 0 4px 24px rgba(61, 53, 41, 0.10);
+}
+
+/* Image caption */
+.prose-naturlig figcaption {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6B5E52;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+/* Wide image strip (full container width) */
+.prose-naturlig .billede-bred {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 2.5rem 0;
+  box-shadow: 0 4px 24px rgba(61, 53, 41, 0.10);
+}
+
+.prose-naturlig .billede-bred img {
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  height: 400px;
+  object-fit: cover;
+}
+
+@keyframes scrollWheel {
+  0%   { transform: translateX(-50%) translateY(0);    opacity: 1; }
+  60%  { transform: translateX(-50%) translateY(10px); opacity: 0; }
+  61%  { transform: translateX(-50%) translateY(0);    opacity: 0; }
+  100% { transform: translateX(-50%) translateY(0);    opacity: 1; }
+}
+
+.scroll-mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid rgba(90, 122, 101, 0.55);
+  border-radius: 13px;
+  position: relative;
+}
+
+.scroll-mouse::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 8px;
+  background: #5A7A65;
+  border-radius: 2px;
+  left: 50%;
+  top: 7px;
+  transform: translateX(-50%);
+  animation: scrollWheel 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

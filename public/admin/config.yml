@@ -1,0 +1,26 @@
+backend:
+  name: github
+  repo: DIN-GITHUB-BRUGER/naturliglivsmestring
+  branch: main
+  base_url: https://DIN-VERCEL-URL.vercel.app
+
+locale: da
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: pages
+    label: Sider
+    label_singular: Side
+    folder: content/pages
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    fields:
+      - { label: "Sidetitel", name: title, widget: string }
+      - { label: "Beskrivelse (SEO)", name: description, widget: text }
+      - { label: "Billede URL", name: image, widget: string, hint: "Indsæt et Unsplash-link, fx https://images.unsplash.com/photo-xxx?w=1200&auto=format&fit=crop&q=80" }
+      - { label: "Billede beskrivelse", name: imageAlt, widget: string, hint: "Beskriv billedet kort, fx 'Person der sidder roligt ved vandet'" }
+      - { label: "Uddrag", name: excerpt, widget: text, hint: "Vises under sidetitlen i headeren" }
+      - { label: "Indhold", name: body, widget: markdown }

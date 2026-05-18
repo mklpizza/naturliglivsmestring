@@ -1,0 +1,80 @@
+---
+title: "Om mig"
+description: "Lær mig lidt at kende — hvem jeg er, hvad jeg tror på, og hvordan jeg arbejder som online mental coach."
+image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&auto=format&fit=crop&q=80"
+imageAlt: "Varm og nærværende person i naturlige omgivelser"
+excerpt: "Jeg er her, fordi jeg ved, hvor svært det kan være at bede om hjælp — og hvor meget det kan betyde."
+---
+
+<div class="billede-sektion">
+<div>
+
+## Hvem er jeg?
+
+Jeg er uddannet mental coach og har i mange år arbejdet med mennesker, der befinder sig i svære livssituationer. Mit fokus er på angst, stress, mistrivsel og destruktive relationsmønstre — ikke fordi det er lette emner, men fordi det er her, mange mennesker bærer på tunge byrder i stilhed.
+
+Jeg tror på, at alle mennesker har ressourcerne til at finde vej — men at vi sommetider har brug for et trygt rum og en erfaren guide ved siden af os.
+
+**Uddannelse**
+
+- Certificeret mental coach, Dansk Coaching Institut (2018)
+- Diplom i kognitiv adfærdsterapi, Psykoterapeutisk Institut (2020)
+- Efteruddannelse i traumeinformeret coaching (2022)
+
+**Erfaring**
+
+- 6+ års erfaring som selvstændig mental coach
+- Tidligere rådgiver hos kommunal stressrådgivning (2017–2021)
+- Over 400 individuelle coachingforløb gennemført
+
+</div>
+<div>
+
+![Varm og nærværende person i naturlige omgivelser](https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80)
+
+</div>
+</div>
+
+<div class="billede-sektion">
+<div>
+
+![Person der sidder fredeligt i naturen og finder ro](https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop&q=80)
+
+</div>
+<div>
+
+## Min tilgang
+
+Jeg arbejder ikke med diagnoser eller én-løsning-passer-alle. I stedet møder jeg dig, som du er, med din unikke historie og dine unikke behov.
+
+Vi arbejder med:
+
+- At forstå mønstrene bag dine tanker og følelser
+- At finde dine egne styrker og ressourcer
+- At sætte realistiske og meningsfulde mål
+- At opbygge strategier, der virker i dit liv
+
+Alt sker i dit tempo. Ingen pres, ingen hurtige løsninger.
+
+</div>
+</div>
+
+## Hvad kan jeg hjælpe med?
+
+Jeg arbejder primært med:
+
+**Angst** — generalangst, sociale angst, panikangst og bekymringer, der tager overhånd.
+
+**Stress** — både akut og kronisk stress, udbrændthed og det, der sker, når kroppen siger fra.
+
+**Mistrivsel** — en vag, men tung fornemmelse af at have det svært. Af ikke at trives, selvom det ikke er til at sætte en præcis finger på.
+
+**Manipulation** — at genkende og komme fri af manipulative mønstre, uanset om det er i parforhold, venskaber eller på arbejdet.
+
+## Praktisk information
+
+Alle samtaler foregår online — via video. Det giver dig fleksibilitet til at vælge et tidspunkt og sted, der passer dig.
+
+Første samtale er en kort, uforpligtende snak om, hvad du søger, og om vi er et godt match.
+
+Har du spørgsmål, er du altid velkommen til at kontakte mig.
