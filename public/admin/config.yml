@@ -26,26 +26,27 @@ collections:
       - { label: "Uddrag", name: excerpt, widget: text, hint: "Vises under sidetitlen i headeren" }
       - { label: "Indhold", name: body, widget: markdown }
 
-  - name: settings
-    label: Indstillinger
+  - name: menu
+    label: Menu
+    label_singular: Menu
     files:
       - name: navigation
-        label: Menu (navigation)
+        label: Menu
         file: content/navigation.json
         fields:
           - label: "Menupunkter"
             name: items
             widget: list
             summary: "{{fields.label}}"
+            hint: "Træk menupunkter op og ned for at ændre rækkefølgen. For at lave et dropdown-menupunkt — lad 'Link til side' stå tomt og tilføj underpunkter."
             fields:
-              - { label: "Navn i menu", name: label, widget: string, hint: "Det der vises i menuen, fx 'Om mig' eller 'Emner'" }
-              - { label: "Link til side", name: href, widget: string, required: false, hint: "Starter med / efterfulgt af sidens slug, fx /om-mig. Lad være tom hvis punktet kun fungerer som dropdown-overskrift" }
+              - { label: "Navn i menu", name: label, widget: string, hint: "Det der vises i menuen, fx 'Om mig'" }
+              - { label: "Link til side", name: href, widget: string, required: false, hint: "Starter med / efterfulgt af sidens slug, fx /om-mig. Lad være tomt for dropdown-menupunkter." }
               - label: "Underpunkter (dropdown)"
                 name: children
                 widget: list
                 required: false
                 summary: "{{fields.label}} → {{fields.href}}"
-                hint: "Tilføj underpunkter for at lave en dropdown. Lad være tom hvis punktet er en almindelig menupunkt."
                 fields:
                   - { label: "Navn", name: label, widget: string }
                   - { label: "Link", name: href, widget: string, hint: "fx /angst" }
