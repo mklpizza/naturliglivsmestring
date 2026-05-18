@@ -21,29 +21,42 @@
         .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'ny-side';
     }
 
+    function escapeHtml(s) {
+      return (s || '').toString()
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
+    function renderBlockPreview(text, image, alt, imageRight) {
+      var imgHtml = image
+        ? '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(alt) + '" style="width:100%;border-radius:18px;box-shadow:0 4px 20px rgba(61,53,41,0.10);"/>'
+        : '<div style="background:#EBF0EC;padding:50px 20px;text-align:center;border-radius:18px;color:#6B5E52;font-size:13px;">Vælg et billede</div>';
+      var textHtml = '<div style="font-family:Raleway,sans-serif;color:#4A3F35;line-height:1.7;font-size:15px;">' + (text || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n\n+/g, '</p><p>').replace(/\n/g, '<br/>') + '</div>';
+      textHtml = '<p style="margin:0;">' + textHtml.replace(/<div[^>]*>/, '').replace(/<\/div>$/, '') + '</p>';
+      var left = imageRight ? textHtml : imgHtml;
+      var right = imageRight ? imgHtml : textHtml;
+      return '<div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;margin:28px 0;padding:8px;border:1px dashed rgba(212,196,168,0.6);border-radius:8px;"><div>' + left + '</div><div>' + right + '</div></div>';
+    }
+
     var PREVIEW_CSS = [
       "@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Raleway:wght@400;500;600&display=swap');",
       "html, body { margin: 0; padding: 0; }",
       ".nlm * { box-sizing: border-box; }",
       ".nlm { font-family: 'Raleway', system-ui, sans-serif; color: #3D3529; background: #F5F0E8; min-height: 100vh; }",
-      /* URL bar */
       ".nlm-slug-bar { background: #EBF0EC; border-bottom: 1px solid rgba(212,196,168,0.6); padding: 10px 28px; font-size: 12px; color: #5A7A65; display: flex; align-items: center; gap: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }",
       ".nlm-slug-bar small { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; font-size: 10px; color: #6B5E52; font-family: 'Raleway', sans-serif; }",
-      /* Top nav */
       ".nlm-nav { position: sticky; top: 0; z-index: 50; background: rgba(245,240,232,0.95); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(212,196,168,0.6); padding: 16px 28px; display: flex; justify-content: space-between; align-items: center; }",
       ".nlm-logo { font-family: 'Lora', Georgia, serif; font-size: 18px; font-weight: 600; color: #3D3529; }",
       ".nlm-nav-items { display: flex; gap: 22px; align-items: center; font-size: 13px; }",
       ".nlm-nav-item { color: #6B5E52; font-weight: 500; }",
       ".nlm-nav-cta { background: #5A7A65; color: #F5F0E8; padding: 6px 18px; border-radius: 999px; font-size: 12px; font-weight: 600; }",
-      /* Page header */
       ".nlm-header { position: relative; min-height: 280px; padding: 60px 36px 50px; overflow: hidden; background: linear-gradient(to bottom, #BBD5C5 0%, #EBF0EC 60%, #F5F0E8 100%); }",
-      ".nlm-header.has-image .nlm-header-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; opacity: 0.6; }",
-      ".nlm-header.has-image .nlm-header-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(187,213,197,0.55) 0%, rgba(235,240,236,0.7) 65%, rgba(245,240,232,1) 100%); z-index: 1; }",
+      ".nlm-header .nlm-header-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; opacity: 0.65; }",
+      ".nlm-header .nlm-header-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(187,213,197,0.55) 0%, rgba(235,240,236,0.7) 65%, rgba(245,240,232,1) 100%); z-index: 1; }",
       ".nlm-header-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; text-align: center; }",
       ".nlm-eyebrow { font-size: 11px; font-weight: 600; color: #5A7A65; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }",
       ".nlm-title { font-family: 'Lora', Georgia, serif; font-size: 38px; font-weight: 600; color: #3D3529; margin: 0 0 16px; line-height: 1.15; letter-spacing: -0.01em; }",
       ".nlm-excerpt { font-size: 16px; line-height: 1.6; color: #4A3F35; margin: 0; }",
-      /* Body */
       ".nlm-body { max-width: 720px; margin: 0 auto; padding: 40px 36px 60px; }",
       ".nlm-body h2 { font-family: 'Lora', Georgia, serif; font-size: 26px; font-weight: 600; color: #3D3529; margin: 36px 0 14px; }",
       ".nlm-body h3 { font-family: 'Lora', Georgia, serif; font-size: 20px; font-weight: 600; color: #3D3529; margin: 28px 0 10px; }",
@@ -54,24 +67,21 @@
       ".nlm-body strong { color: #3D3529; font-weight: 600; }",
       ".nlm-body em { color: #6B5E52; }",
       ".nlm-body img { width: 100%; border-radius: 18px; margin: 24px 0; box-shadow: 0 4px 20px rgba(61,53,41,0.10); }",
-      ".nlm-body .billede-sektion { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; margin: 28px 0; }",
+      ".nlm-body .billede-sektion { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; margin: 28px 0; }",
       ".nlm-body .billede-sektion img { margin: 0; }",
-      /* CTA */
       ".nlm-cta { max-width: 720px; margin: 0 auto 50px; padding: 28px 32px; background: #5A7A65; color: #F5F0E8; border-radius: 20px; text-align: center; }",
       ".nlm-cta h3 { font-family: 'Lora', Georgia, serif; font-size: 22px; margin: 0 0 6px; color: #F5F0E8; }",
       ".nlm-cta p { font-size: 14px; opacity: 0.9; margin: 0; }",
-      /* SEO box */
       ".nlm-seo { padding: 24px 36px; background: #F7F3EC; border-top: 1px solid rgba(212,196,168,0.5); font-size: 13px; color: #6B5E52; }",
       ".nlm-seo-label { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; font-size: 10px; color: #5A7A65; margin-bottom: 8px; }",
       ".nlm-seo-google-title { color: #1a0dab; font-size: 18px; font-family: serif; margin-bottom: 2px; }",
       ".nlm-seo-google-url { color: #006621; font-size: 12px; margin-bottom: 4px; }",
       ".nlm-seo-google-desc { color: #545454; line-height: 1.5; }",
       ".nlm-empty { padding: 60px 36px; text-align: center; color: #6B5E52; font-style: italic; font-size: 14px; }",
-      /* Menu preview */
       ".menu-preview { font-family: 'Raleway', sans-serif; background: #F5F0E8; border: 1px solid rgba(212,196,168,0.6); padding: 22px 26px; border-radius: 14px; margin: 16px; box-shadow: 0 2px 14px rgba(61,53,41,0.08); color: #3D3529; }",
       ".menu-preview h3 { font-family: 'Lora', Georgia, serif; font-size: 20px; font-weight: 600; margin: 0 0 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(212,196,168,0.6); }",
       ".menu-preview-row { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }",
-      ".menu-preview-item { font-size: 14px; font-weight: 500; color: #6B5E52; display: inline-flex; align-items: center; gap: 4px; }",
+      ".menu-preview-item { font-size: 14px; font-weight: 500; color: #6B5E52; }",
       ".menu-preview-item.contact { background: #5A7A65; color: #F5F0E8; padding: 6px 18px; border-radius: 999px; font-size: 13px; font-weight: 600; }",
       ".menu-preview-section { margin-top: 16px; }",
       ".menu-preview-section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; color: #5A7A65; margin-bottom: 8px; }",
@@ -87,22 +97,121 @@
         return;
       }
 
-      // Inject CSS i preview iframe
       CMS.registerPreviewStyle(PREVIEW_CSS, { raw: true });
 
-      /* ---------- Side preview ---------- */
+      /* ---------- Editor components: indsæt sektioner via knapper i værktøjslinjen ---------- */
+
+      // Tekst + Billede (billede til højre)
+      CMS.registerEditorComponent({
+        id: 'tekst_billede_hojre',
+        label: 'Tekst + Billede (billede til højre)',
+        fields: [
+          { name: 'text', label: 'Tekst', widget: 'text' },
+          { name: 'image', label: 'Billede', widget: 'image' },
+          { name: 'imageAlt', label: 'Billede beskrivelse (SEO)', widget: 'string', default: '' }
+        ],
+        pattern: /<!--billede-sektion-hojre-->[\s\S]*?<!--\/billede-sektion-->/,
+        fromBlock: function (match) {
+          var raw = match[0];
+          var textMatch = raw.match(/<div>\s*\n\s*\n([\s\S]*?)\n\s*\n<\/div>/);
+          var imgMatch = raw.match(/!\[([^\]]*)\]\(([^)]*)\)/);
+          return {
+            text: textMatch ? textMatch[1].trim() : '',
+            imageAlt: imgMatch ? imgMatch[1] : '',
+            image: imgMatch ? imgMatch[2] : ''
+          };
+        },
+        toBlock: function (obj) {
+          return '<!--billede-sektion-hojre-->\n<div class="billede-sektion">\n<div>\n\n' +
+            (obj.text || '') +
+            '\n\n</div>\n<div>\n\n![' + (obj.imageAlt || '') + '](' + (obj.image || '') + ')\n\n</div>\n</div>\n<!--/billede-sektion-->';
+        },
+        toPreview: function (obj) {
+          return renderBlockPreview(obj.text, obj.image, obj.imageAlt, true);
+        }
+      });
+
+      // Tekst + Billede (billede til venstre)
+      CMS.registerEditorComponent({
+        id: 'tekst_billede_venstre',
+        label: 'Tekst + Billede (billede til venstre)',
+        fields: [
+          { name: 'image', label: 'Billede', widget: 'image' },
+          { name: 'imageAlt', label: 'Billede beskrivelse (SEO)', widget: 'string', default: '' },
+          { name: 'text', label: 'Tekst', widget: 'text' }
+        ],
+        pattern: /<!--billede-sektion-venstre-->[\s\S]*?<!--\/billede-sektion-->/,
+        fromBlock: function (match) {
+          var raw = match[0];
+          var imgMatch = raw.match(/!\[([^\]]*)\]\(([^)]*)\)/);
+          // text is in the SECOND <div>
+          var divs = raw.match(/<div>\s*\n\s*\n([\s\S]*?)\n\s*\n<\/div>/g) || [];
+          var textBlock = divs[1] || '';
+          var textMatch = textBlock.match(/<div>\s*\n\s*\n([\s\S]*?)\n\s*\n<\/div>/);
+          return {
+            image: imgMatch ? imgMatch[2] : '',
+            imageAlt: imgMatch ? imgMatch[1] : '',
+            text: textMatch ? textMatch[1].trim() : ''
+          };
+        },
+        toBlock: function (obj) {
+          return '<!--billede-sektion-venstre-->\n<div class="billede-sektion">\n<div>\n\n![' + (obj.imageAlt || '') + '](' + (obj.image || '') + ')\n\n</div>\n<div>\n\n' +
+            (obj.text || '') +
+            '\n\n</div>\n</div>\n<!--/billede-sektion-->';
+        },
+        toPreview: function (obj) {
+          return renderBlockPreview(obj.text, obj.image, obj.imageAlt, false);
+        }
+      });
+
+      // Fuldbredde billede
+      CMS.registerEditorComponent({
+        id: 'fuldbredde_billede',
+        label: 'Fuldbredde billede',
+        fields: [
+          { name: 'image', label: 'Billede', widget: 'image' },
+          { name: 'imageAlt', label: 'Billede beskrivelse (SEO)', widget: 'string', default: '' }
+        ],
+        pattern: /<!--fuldbredde-billede-->[\s\S]*?<!--\/fuldbredde-billede-->/,
+        fromBlock: function (match) {
+          var imgMatch = match[0].match(/!\[([^\]]*)\]\(([^)]*)\)/);
+          return {
+            image: imgMatch ? imgMatch[2] : '',
+            imageAlt: imgMatch ? imgMatch[1] : ''
+          };
+        },
+        toBlock: function (obj) {
+          return '<!--fuldbredde-billede-->\n<div class="billede-bred">\n\n![' + (obj.imageAlt || '') + '](' + (obj.image || '') + ')\n\n</div>\n<!--/fuldbredde-billede-->';
+        },
+        toPreview: function (obj) {
+          if (!obj.image) return '<div style="padding:50px;background:#EBF0EC;text-align:center;color:#6B5E52;border-radius:18px;">Vælg et billede</div>';
+          return '<img src="' + escapeHtml(obj.image) + '" alt="' + escapeHtml(obj.imageAlt || '') + '" style="width:100%;border-radius:18px;margin:24px 0;box-shadow:0 4px 20px rgba(61,53,41,0.10);"/>';
+        }
+      });
+
+      /* ---------- Page preview ---------- */
       var PagePreview = function (props) {
         var data = props.entry.get('data');
         var title = data.get('title') || '';
         var description = data.get('description') || '';
-        var image = data.get('image') || '';
+        var imagePath = data.get('image') || '';
         var imageAlt = data.get('imageAlt') || '';
         var excerpt = data.get('excerpt') || '';
         var menuParent = data.get('menuParent') || '';
         var slug = computeSlug(title);
         var url = '/' + slug;
 
-        // Hardkodet topnav der matcher den rigtige
+        // Resolve image URL via getAsset (håndterer både uploadede og eksterne billeder)
+        var imageUrl = '';
+        if (imagePath) {
+          try {
+            var asset = props.getAsset(imagePath);
+            imageUrl = asset ? asset.toString() : imagePath;
+          } catch (e) {
+            imageUrl = imagePath;
+          }
+        }
+
         var navItems = ['Om mig', 'Angst', 'Stress', 'Mistrivsel', 'Manipulation'];
 
         var slugBarItems = [
@@ -118,23 +227,23 @@
         });
         navItemsEl.push(h('span', { key: 'k', className: 'nlm-nav-cta' }, 'Kontakt'));
 
-        var headerBg = image
-          ? [
-              h('div', { key: 'bg', className: 'nlm-header-bg', style: { backgroundImage: 'url(' + image + ')' } }),
-              h('div', { key: 'ov', className: 'nlm-header-overlay' })
-            ]
-          : [];
-
-        var headerInner = h('div', { className: 'nlm-header-inner' },
-          h('div', { className: 'nlm-eyebrow' }, 'Naturliglivsmestring'),
-          h('h1', { className: 'nlm-title' }, title || '(Sidetitel)'),
-          excerpt ? h('p', { className: 'nlm-excerpt' }, excerpt) : null
+        var headerLayers = [];
+        if (imageUrl) {
+          headerLayers.push(h('div', { key: 'bg', className: 'nlm-header-bg', style: { backgroundImage: 'url(' + imageUrl + ')' } }));
+          headerLayers.push(h('div', { key: 'ov', className: 'nlm-header-overlay' }));
+        }
+        headerLayers.push(
+          h('div', { key: 'in', className: 'nlm-header-inner' },
+            h('div', { className: 'nlm-eyebrow' }, 'Naturliglivsmestring'),
+            h('h1', { className: 'nlm-title' }, title || '(Sidetitel)'),
+            excerpt ? h('p', { className: 'nlm-excerpt' }, excerpt) : null
+          )
         );
 
         var bodyContent = props.widgetFor('body');
         var bodyEl = bodyContent
           ? h('div', { className: 'nlm-body' }, bodyContent)
-          : h('div', { className: 'nlm-empty' }, 'Skriv indhold til siden i feltet "Indhold" til venstre — det vises her live.');
+          : h('div', { className: 'nlm-empty' }, 'Skriv indhold i feltet "Indhold" til venstre — det vises her live.');
 
         return h('div', { className: 'nlm' },
           h('div', { className: 'nlm-slug-bar' }, slugBarItems),
@@ -142,7 +251,7 @@
             h('div', { className: 'nlm-logo' }, 'Naturliglivsmestring'),
             h('div', { className: 'nlm-nav-items' }, navItemsEl)
           ),
-          h('div', { className: image ? 'nlm-header has-image' : 'nlm-header' }, headerBg.concat([headerInner])),
+          h('div', { className: 'nlm-header' }, headerLayers),
           bodyEl,
           h('div', { className: 'nlm-cta' },
             h('h3', null, 'Tag det første skridt'),
