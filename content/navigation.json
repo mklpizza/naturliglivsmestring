@@ -1,10 +1,15 @@
 {
   "items": [
     { "label": "Om mig", "href": "/om-mig" },
-    { "label": "Angst", "href": "/angst" },
-    { "label": "Stress", "href": "/stress" },
-    { "label": "Mistrivsel", "href": "/mistrivsel" },
-    { "label": "Manipulation", "href": "/manipulation" },
+    {
+      "label": "Emner",
+      "children": [
+        { "label": "Angst", "href": "/angst" },
+        { "label": "Stress", "href": "/stress" },
+        { "label": "Mistrivsel", "href": "/mistrivsel" },
+        { "label": "Manipulation", "href": "/manipulation" }
+      ]
+    },
     { "label": "Kontakt", "href": "/kontakt" }
   ]
 }

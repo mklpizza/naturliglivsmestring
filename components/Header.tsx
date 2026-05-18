@@ -4,13 +4,20 @@ import Link from 'next/link'
 import { useState } from 'react'
 import navigation from '@/content/navigation.json'
 
-type NavItem = {
+type NavChild = {
   label: string
   href: string
 }
 
+type NavItem = {
+  label: string
+  href?: string
+  children?: NavChild[]
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
   const items = navigation.items as NavItem[]
 
   return (
@@ -28,10 +35,41 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-6">
           {items.map((item) => {
             const isContact = item.href === '/kontakt'
+            const hasChildren = Array.isArray(item.children) && item.children.length > 0
+
+            if (hasChildren) {
+              return (
+                <div key={item.label} className="relative group">
+                  <button
+                    type="button"
+                    className="text-[#6B5E52] group-hover:text-[#5A7A65] transition-colors duration-200 font-medium text-sm flex items-center gap-1 cursor-pointer"
+                  >
+                    {item.label}
+                    <svg className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="bg-[#F5F0E8] border border-[#D4C4A8]/60 rounded-2xl shadow-lg py-2 min-w-[200px]">
+                      {item.children!.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block px-5 py-2.5 text-sm text-[#3D3529] hover:bg-[#EBF0EC]/60 hover:text-[#5A7A65] transition-colors duration-150"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )
+            }
+
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={item.href ?? '#'}
                 className={
                   isContact
                     ? 'bg-[#5A7A65] text-[#F5F0E8] px-5 py-2 rounded-full text-sm font-semibold hover:bg-[#3D3529] transition-colors duration-200'
@@ -61,17 +99,56 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-[#F5F0E8] border-t border-[#D4C4A8]/60 px-6 py-4 flex flex-col gap-4">
-          {items.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="text-[#3D3529] hover:text-[#5A7A65] font-medium py-1"
-            >
-              {item.label}
-            </Link>
-          ))}
+        <div className="md:hidden bg-[#F5F0E8] border-t border-[#D4C4A8]/60 px-6 py-4 flex flex-col gap-2">
+          {items.map((item) => {
+            const hasChildren = Array.isArray(item.children) && item.children.length > 0
+
+            if (hasChildren) {
+              const isExpanded = mobileExpanded === item.label
+              return (
+                <div key={item.label}>
+                  <button
+                    type="button"
+                    onClick={() => setMobileExpanded(isExpanded ? null : item.label)}
+                    className="w-full flex items-center justify-between text-[#3D3529] hover:text-[#5A7A65] font-medium py-2 cursor-pointer"
+                  >
+                    <span>{item.label}</span>
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
+                      fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {isExpanded && (
+                    <div className="ml-4 mt-1 mb-2 flex flex-col gap-2 border-l border-[#D4C4A8]/60 pl-4">
+                      {item.children!.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => { setOpen(false); setMobileExpanded(null) }}
+                          className="text-[#3D3529] hover:text-[#5A7A65] text-sm py-1"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )
+            }
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href ?? '#'}
+                onClick={() => setOpen(false)}
+                className="text-[#3D3529] hover:text-[#5A7A65] font-medium py-2"
+              >
+                {item.label}
+              </Link>
+            )
+          })}
         </div>
       )}
     </header>

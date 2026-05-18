@@ -36,7 +36,16 @@ collections:
           - label: "Menupunkter"
             name: items
             widget: list
-            summary: "{{fields.label}} → {{fields.href}}"
+            summary: "{{fields.label}}"
             fields:
-              - { label: "Navn i menu", name: label, widget: string, hint: "Det der vises i menuen, fx 'Om mig'" }
-              - { label: "Link til side", name: href, widget: string, hint: "Starter med / efterfulgt af sidens slug, fx /om-mig" }
+              - { label: "Navn i menu", name: label, widget: string, hint: "Det der vises i menuen, fx 'Om mig' eller 'Emner'" }
+              - { label: "Link til side", name: href, widget: string, required: false, hint: "Starter med / efterfulgt af sidens slug, fx /om-mig. Lad være tom hvis punktet kun fungerer som dropdown-overskrift" }
+              - label: "Underpunkter (dropdown)"
+                name: children
+                widget: list
+                required: false
+                summary: "{{fields.label}} → {{fields.href}}"
+                hint: "Tilføj underpunkter for at lave en dropdown. Lad være tom hvis punktet er en almindelig menupunkt."
+                fields:
+                  - { label: "Navn", name: label, widget: string }
+                  - { label: "Link", name: href, widget: string, hint: "fx /angst" }
