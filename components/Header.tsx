@@ -2,23 +2,21 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import navigation from '@/content/navigation.json'
 
 type NavChild = {
   label: string
   href: string
 }
 
-type NavItem = {
+export type NavItem = {
   label: string
   href?: string
   children?: NavChild[]
 }
 
-export default function Header() {
+export default function Header({ items }: { items: NavItem[] }) {
   const [open, setOpen] = useState(false)
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
-  const items = navigation.items as NavItem[]
 
   return (
     <header className="sticky top-0 z-50 bg-[#F5F0E8]/95 backdrop-blur-sm border-b border-[#D4C4A8]/60">

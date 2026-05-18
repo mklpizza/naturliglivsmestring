@@ -24,6 +24,16 @@ collections:
       - { label: "Billede URL", name: image, widget: string, hint: "Indsæt et Unsplash-link, fx https://images.unsplash.com/photo-xxx?w=1200&auto=format&fit=crop&q=80" }
       - { label: "Billede beskrivelse", name: imageAlt, widget: string, hint: "Beskriv billedet kort, fx 'Person der sidder roligt ved vandet'" }
       - { label: "Uddrag", name: excerpt, widget: text, hint: "Vises under sidetitlen i headeren" }
+      - label: "Tilføj til menu under (valgfri)"
+        name: menuParent
+        widget: relation
+        required: false
+        collection: menu
+        file: navigation
+        search_fields: ["items.*.label"]
+        value_field: "items.*.label"
+        display_fields: ["items.*.label"]
+        hint: "Vælg et eksisterende menupunkt for at gøre denne side til et underpunkt. Lad være tom for at undlade siden fra menuen (eller tilføj den manuelt under Menu)."
       - { label: "Indhold", name: body, widget: markdown }
 
   - name: menu

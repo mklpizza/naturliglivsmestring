@@ -3,6 +3,7 @@ import { Lora, Raleway } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { getMergedNavigation } from '@/lib/markdown'
 
 const lora = Lora({
   subsets: ['latin'],
@@ -33,10 +34,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const { items } = getMergedNavigation()
   return (
     <html lang="da" className={`h-full ${lora.variable} ${raleway.variable}`}>
       <body className="min-h-full flex flex-col" style={{ fontFamily: 'var(--font-raleway), system-ui, sans-serif' }}>
-        <Header />
+        <Header items={items} />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
