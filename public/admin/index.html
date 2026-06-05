@@ -384,21 +384,39 @@
           var card = a.closest('li') || a.closest('[role="listitem"]') || a.parentElement;
           if (card && !seen.has(card)) {
             seen.add(card);
-            cards.push({ card: card, anchor: a });
+            // Udled slug fra href som stabil ID
+            var hrefMatch = (a.getAttribute('href') || '').match(/\/entries\/([^/?#]+)/);
+            var slug = hrefMatch ? hrefMatch[1] : '';
+            cards.push({ card: card, anchor: a, slug: slug });
           }
         });
         return cards;
       }
 
-      function parseEntry(text) {
-        // Format: "Title  ·  ParentName" eller "Title  ·  —"
-        var lastDot = text.lastIndexOf('·');
-        if (lastDot === -1) return { title: text.trim(), parent: '' };
-        var title = text.substring(0, lastDot).trim();
-        var parent = text.substring(lastDot + 1).trim();
-        if (parent === '—' || parent === '') parent = '';
+      function parseEntry(card) {
+        // Brug H2/H3 til title (robust mod ekstra metadata)
+        var titleEl = card.querySelector('h2, h3, [role="heading"]');
+        var title = titleEl ? (titleEl.textContent || '').trim() : '';
+
+        // Find parent ved at lede efter VORES specifikke pattern: "  ·  " (præcis 2 mellemrum)
+        var allText = card.textContent || '';
+        // Hvis title var tom fallback til første del af tekst
+        if (!title) {
+          var firstLine = allText.split(/\n|  ·  /)[0];
+          title = firstLine.trim();
+        }
+        // Match første forekomst af "  ·  Value" — undgå at fange senere "·" fra fx datoer
+        var match = allText.match(/  ·  ([^\n·]+?)(?:  ·  |\n|$)/);
+        var parent = '';
+        if (match) {
+          parent = match[1].trim();
+          if (parent === '—' || parent === '') parent = '';
+        }
         return { title: title, parent: parent };
       }
+
+      // Cache: slug -> { title, parent }
+      var classificationCache = {};
 
       function organizeTree() {
         observerActive = false;
@@ -406,17 +424,40 @@
           var cards = findEntryCards();
           if (cards.length === 0) return;
 
-          // Parse all entries
+          // Parse alle entries — brug cache for at undgå reklassifikation når Decap re-renderer
           var entries = cards.map(function (c) {
-            var info = parseEntry(c.card.textContent || '');
-            return { card: c.card, anchor: c.anchor, title: info.title, parent: info.parent };
+            var info;
+            if (c.slug && classificationCache[c.slug]) {
+              info = classificationCache[c.slug];
+            } else {
+              info = parseEntry(c.card);
+              // Cache kun hvis vi fik en troværdig title (Decap har renderet)
+              if (info.title && c.slug) classificationCache[c.slug] = info;
+            }
+            return { card: c.card, anchor: c.anchor, slug: c.slug, title: info.title, parent: info.parent };
           });
 
-          // Map: title -> entry
+          // Map: title -> entry (kun for kort med kendt titel)
           var byTitle = {};
-          entries.forEach(function (e) { byTitle[e.title] = e; });
+          var allTitles = new Set();
+          entries.forEach(function (e) {
+            if (e.title) {
+              byTitle[e.title] = e;
+              allTitles.add(e.title);
+            }
+          });
 
-          // Identificér parents (titler der bruges som menuParent)
+          // Validér: parent skal være en eksisterende titel — ellers ignorer
+          entries.forEach(function (e) {
+            if (e.parent && !allTitles.has(e.parent)) {
+              e.parent = '';
+              if (e.slug && classificationCache[e.slug]) {
+                classificationCache[e.slug].parent = '';
+              }
+            }
+          });
+
+          // Identificér parents (titler der faktisk bruges som menuParent)
           var parentTitles = new Set();
           entries.forEach(function (e) {
             if (e.parent) parentTitles.add(e.parent);
@@ -436,6 +477,7 @@
                 e.card.setAttribute('data-nlm-self', e.title);
               } else {
                 e.card.classList.remove('nlm-parent');
+                e.card.removeAttribute('data-nlm-self');
               }
             }
           });
@@ -515,9 +557,9 @@
       });
       observer.observe(document.body, { childList: true, subtree: true });
 
-      // Initial + periodisk backup-trigger
+      // Initial trigger — efterfølgende ændringer fanges af MutationObserver
       setTimeout(organizeTree, 500);
-      setInterval(organizeTree, 3000);
+      setTimeout(organizeTree, 1500);
     }
 
     setup();
