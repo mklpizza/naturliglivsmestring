@@ -22,10 +22,7 @@ collections:
     create: true
     delete: true
     slug: "{{slug}}"
-    summary: "{{title}}  ·  {{menuParent}}"
-    view_groups:
-      - label: "Grupperet efter menupunkt"
-        field: menuParent
+    summary: "{{title}}  ·  {{menuParent | default('—')}}"
     fields:
       - { label: "Sidetitel", name: title, widget: string, hint: "URL'en for siden bliver automatisk dannet ud fra titlen — se forhåndsvisningen i højre side." }
       - { label: "Øverste billede", name: image, widget: image, required: false, hint: "Vælg et billede fra mediebiblioteket, eller upload et nyt. Du kan også indsætte en ekstern URL (fx Unsplash)." }

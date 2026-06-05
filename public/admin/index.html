@@ -332,10 +332,65 @@
       };
 
       CMS.registerPreviewTemplate('navigation', MenuPreview);
+
+      /* ---------- Indryk sub-pages i admin liste-visning ---------- */
+      var adminStyles = document.createElement('style');
+      adminStyles.textContent = [
+        '.nlm-subpage { position: relative; margin-left: 24px !important; }',
+        '.nlm-subpage::before {',
+        '  content: "↳"; position: absolute; left: -20px; top: 50%;',
+        '  transform: translateY(-50%); color: #7C9885;',
+        '  font-weight: 600; font-size: 16px;',
+        '}',
+        '.nlm-subpage > *:first-child { border-left: 3px solid rgba(124,152,133,0.45) !important; padding-left: 12px !important; }',
+        '.nlm-meta-parent { color: #5A7A65; font-size: 12px; font-weight: 500; margin-left: 8px; }'
+      ].join('\n');
+      document.head.appendChild(adminStyles);
+
+      function styleSubPages() {
+        // Find alle entry-kort i side-listen — flere mulige selectors da Decap kan ændre sig
+        var candidates = [];
+        var nodeLists = [
+          document.querySelectorAll('a[href*="/collections/pages/entries/"]'),
+          document.querySelectorAll('main li > a, main [role="listitem"] a')
+        ];
+        nodeLists.forEach(function (list) {
+          list.forEach(function (a) {
+            if (candidates.indexOf(a) === -1) candidates.push(a);
+          });
+        });
+
+        candidates.forEach(function (a) {
+          var text = (a.textContent || '').trim();
+          // Matcher mønstret "Title  ·  ParentName" hvor ParentName ikke er "—"
+          var match = text.match(/·\s*([^·]+?)\s*$/);
+          var card = a.closest('li') || a.closest('[role="listitem"]') || a;
+
+          if (match && match[1].trim() && match[1].trim() !== '—' && match[1].trim() !== '') {
+            // Det er en sub-page
+            if (!card.classList.contains('nlm-subpage')) {
+              card.classList.add('nlm-subpage');
+            }
+          } else {
+            // Det er en top-level side — fjern eventuel styling
+            card.classList.remove('nlm-subpage');
+          }
+        });
+      }
+
+      // Observer DOM-ændringer (Decap renderer ofte rows asynkront)
+      var observer = new MutationObserver(function () {
+        styleSubPages();
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      // Kør også periodisk som backup
+      setInterval(styleSubPages, 1500);
+      setTimeout(styleSubPages, 500);
     }
 
     setup();
   })();
-  </script>
+</script>
 </body>
 </html>
