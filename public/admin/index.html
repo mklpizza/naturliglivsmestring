@@ -126,8 +126,15 @@
             (obj.text || '') +
             '\n\n</div>\n<div>\n\n![' + (obj.imageAlt || '') + '](' + (obj.image || '') + ')\n\n</div>\n</div>\n<!--/billede-sektion-->';
         },
-        toPreview: function (obj) {
-          return renderBlockPreview(obj.text, obj.image, obj.imageAlt, true);
+        toPreview: function (obj, getAsset) {
+          var imageUrl = obj.image || '';
+          if (imageUrl && typeof getAsset === 'function') {
+            try {
+              var asset = getAsset(imageUrl);
+              if (asset) imageUrl = asset.toString();
+            } catch (e) { /* fallback to raw path */ }
+          }
+          return renderBlockPreview(obj.text, imageUrl, obj.imageAlt, true);
         }
       });
 
@@ -159,8 +166,15 @@
             (obj.text || '') +
             '\n\n</div>\n</div>\n<!--/billede-sektion-->';
         },
-        toPreview: function (obj) {
-          return renderBlockPreview(obj.text, obj.image, obj.imageAlt, false);
+        toPreview: function (obj, getAsset) {
+          var imageUrl = obj.image || '';
+          if (imageUrl && typeof getAsset === 'function') {
+            try {
+              var asset = getAsset(imageUrl);
+              if (asset) imageUrl = asset.toString();
+            } catch (e) { /* fallback to raw path */ }
+          }
+          return renderBlockPreview(obj.text, imageUrl, obj.imageAlt, false);
         }
       });
 
@@ -183,9 +197,16 @@
         toBlock: function (obj) {
           return '<!--fuldbredde-billede-->\n<div class="billede-bred">\n\n![' + (obj.imageAlt || '') + '](' + (obj.image || '') + ')\n\n</div>\n<!--/fuldbredde-billede-->';
         },
-        toPreview: function (obj) {
-          if (!obj.image) return '<div style="padding:50px;background:#EBF0EC;text-align:center;color:#6B5E52;border-radius:18px;">Vælg et billede</div>';
-          return '<img src="' + escapeHtml(obj.image) + '" alt="' + escapeHtml(obj.imageAlt || '') + '" style="width:100%;border-radius:18px;margin:24px 0;box-shadow:0 4px 20px rgba(61,53,41,0.10);"/>';
+        toPreview: function (obj, getAsset) {
+          var imageUrl = obj.image || '';
+          if (imageUrl && typeof getAsset === 'function') {
+            try {
+              var asset = getAsset(imageUrl);
+              if (asset) imageUrl = asset.toString();
+            } catch (e) { /* fallback to raw path */ }
+          }
+          if (!imageUrl) return '<div style="padding:50px;background:#EBF0EC;text-align:center;color:#6B5E52;border-radius:18px;">Vælg et billede</div>';
+          return '<img src="' + escapeHtml(imageUrl) + '" alt="' + escapeHtml(obj.imageAlt || '') + '" style="width:100%;border-radius:18px;margin:24px 0;box-shadow:0 4px 20px rgba(61,53,41,0.10);"/>';
         }
       });
 

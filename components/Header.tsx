@@ -36,17 +36,30 @@ export default function Header({ items }: { items: NavItem[] }) {
             const hasChildren = Array.isArray(item.children) && item.children.length > 0
 
             if (hasChildren) {
+              const trigger = item.href ? (
+                <Link
+                  href={item.href}
+                  className="text-[#6B5E52] group-hover:text-[#5A7A65] transition-colors duration-200 font-medium text-sm flex items-center gap-1"
+                >
+                  {item.label}
+                  <svg className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </Link>
+              ) : (
+                <button
+                  type="button"
+                  className="text-[#6B5E52] group-hover:text-[#5A7A65] transition-colors duration-200 font-medium text-sm flex items-center gap-1 cursor-pointer"
+                >
+                  {item.label}
+                  <svg className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              )
               return (
                 <div key={item.label} className="relative group">
-                  <button
-                    type="button"
-                    className="text-[#6B5E52] group-hover:text-[#5A7A65] transition-colors duration-200 font-medium text-sm flex items-center gap-1 cursor-pointer"
-                  >
-                    {item.label}
-                    <svg className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
+                  {trigger}
                   <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="bg-[#F5F0E8] border border-[#D4C4A8]/60 rounded-2xl shadow-lg py-2 min-w-[200px]">
                       {item.children!.map((child) => (
@@ -105,19 +118,32 @@ export default function Header({ items }: { items: NavItem[] }) {
               const isExpanded = mobileExpanded === item.label
               return (
                 <div key={item.label}>
-                  <button
-                    type="button"
-                    onClick={() => setMobileExpanded(isExpanded ? null : item.label)}
-                    className="w-full flex items-center justify-between text-[#3D3529] hover:text-[#5A7A65] font-medium py-2 cursor-pointer"
-                  >
-                    <span>{item.label}</span>
-                    <svg
-                      className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
-                      fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"
+                  <div className="w-full flex items-center justify-between text-[#3D3529] font-medium py-2">
+                    {item.href ? (
+                      <Link
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        className="flex-1 hover:text-[#5A7A65]"
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <span className="flex-1">{item.label}</span>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => setMobileExpanded(isExpanded ? null : item.label)}
+                      aria-label={isExpanded ? 'Skjul undermenu' : 'Vis undermenu'}
+                      className="cursor-pointer p-2 -m-2"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
+                      <svg
+                        className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                  </div>
                   {isExpanded && (
                     <div className="ml-4 mt-1 mb-2 flex flex-col gap-2 border-l border-[#D4C4A8]/60 pl-4">
                       {item.children!.map((child) => (

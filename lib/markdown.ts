@@ -107,7 +107,15 @@ export function getMergedNavigation(): { items: NavItem[] } {
     const existingHrefs = new Set(existing.map((c) => c.href))
     const newOnes = auto.filter((c) => !existingHrefs.has(c.href))
 
-    return { ...item, children: [...existing, ...newOnes] }
+    let allChildren = [...existing, ...newOnes]
+
+    // Hvis forælderen selv har en side OG nu får underpunkter, indsæt forælderens
+    // egen side først i dropdown'en, så den stadig kan tilgås.
+    if (item.href && newOnes.length > 0 && !allChildren.some((c) => c.href === item.href)) {
+      allChildren = [{ label: item.label, href: item.href }, ...allChildren]
+    }
+
+    return { ...item, children: allChildren }
   })
 
   return { items: merged }
