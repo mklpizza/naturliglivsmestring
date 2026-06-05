@@ -7,15 +7,6 @@ backend:
 
 locale: da
 
-# Editorial workflow giver:
-#  - "Gem" knap (gemmer som kladde på en separat branch)
-#  - "Status" dropdown (kladde / under review / klar)
-#  - "Publicer" knap (først når status er "klar")
-# Vercel laver automatisk preview deployments for hver kladde-branch.
-publish_mode: editorial_workflow
-site_url: https://naturliglivsmestring.vercel.app
-display_url: https://naturliglivsmestring.vercel.app
-
 slug:
   encoding: ascii
   clean_accents: true

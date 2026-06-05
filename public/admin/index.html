@@ -334,19 +334,10 @@
 
       CMS.registerPreviewTemplate('navigation', MenuPreview);
 
-      /* ---------- Tree-view i admin liste-visning: nest sub-pages + collapse ---------- */
+      /* ---------- Vis parent-navn som badge i højre side af subpage-rækker ---------- */
       var adminStyles = document.createElement('style');
       adminStyles.textContent = [
-        /* Subpage indrykning og symbol */
-        '.nlm-subpage { position: relative; margin-left: 32px !important; }',
-        '.nlm-subpage::before {',
-        '  content: "↳"; position: absolute; left: -22px; top: 50%;',
-        '  transform: translateY(-50%); color: #7C9885;',
-        '  font-weight: 600; font-size: 16px; z-index: 1;',
-        '}',
-        '.nlm-subpage > *:first-child { border-left: 3px solid rgba(124,152,133,0.45) !important; padding-left: 12px !important; }',
-        '.nlm-subpage.nlm-hidden { display: none !important; }',
-        /* Parent badge i højre side */
+        '.nlm-subpage { position: relative; }',
         '.nlm-subpage::after {',
         '  content: "↳ " attr(data-nlm-parent);',
         '  position: absolute; right: 20px; top: 50%;',
@@ -358,39 +349,11 @@
         '  letter-spacing: 0.02em;',
         '  pointer-events: none; z-index: 1;',
         '  white-space: nowrap;',
-        '}',
-        /* Parent — chevron knap */
-        '.nlm-parent { position: relative; }',
-        '.nlm-collapse-btn {',
-        '  position: absolute; left: -28px; top: 50%;',
-        '  transform: translateY(-50%); width: 22px; height: 22px;',
-        '  background: rgba(124,152,133,0.15); border: 1px solid rgba(124,152,133,0.5);',
-        '  border-radius: 6px; cursor: pointer; padding: 0;',
-        '  display: flex; align-items: center; justify-content: center;',
-        '  color: #5A7A65; font-size: 11px; line-height: 1;',
-        '  transition: transform 0.18s ease;',
-        '  z-index: 2;',
-        '}',
-        '.nlm-collapse-btn:hover { background: rgba(124,152,133,0.3); }',
-        '.nlm-collapse-btn.nlm-collapsed { transform: translateY(-50%) rotate(-90deg); }'
+        '}'
       ].join('\n');
       document.head.appendChild(adminStyles);
 
-      var COLLAPSE_KEY_PREFIX = 'nlm-collapse-';
-      var observerActive = true;
-      var organizeTimeout = null;
-
-      function getCollapsedState(parentName) {
-        try { return localStorage.getItem(COLLAPSE_KEY_PREFIX + parentName) === '1'; }
-        catch (e) { return false; }
-      }
-      function setCollapsedState(parentName, collapsed) {
-        try { localStorage.setItem(COLLAPSE_KEY_PREFIX + parentName, collapsed ? '1' : '0'); }
-        catch (e) {}
-      }
-
       function findEntryCards() {
-        // Find Decap CMS entry-links og deres container-cards
         var anchors = document.querySelectorAll('a[href*="/collections/pages/entries/"]');
         var cards = [];
         var seen = new Set();
@@ -398,202 +361,85 @@
           var card = a.closest('li') || a.closest('[role="listitem"]') || a.parentElement;
           if (card && !seen.has(card)) {
             seen.add(card);
-            // Udled slug fra href som stabil ID
             var hrefMatch = (a.getAttribute('href') || '').match(/\/entries\/([^/?#]+)/);
-            var slug = hrefMatch ? hrefMatch[1] : '';
-            cards.push({ card: card, anchor: a, slug: slug });
+            cards.push({ card: card, slug: hrefMatch ? hrefMatch[1] : '' });
           }
         });
         return cards;
       }
 
-      function parseEntry(card) {
-        // Brug H2/H3 til title (robust mod ekstra metadata)
-        var titleEl = card.querySelector('h2, h3, [role="heading"]');
-        var title = titleEl ? (titleEl.textContent || '').trim() : '';
-
-        // Find parent ved at lede efter VORES specifikke pattern: "  ·  " (præcis 2 mellemrum)
+      function parseParent(card) {
         var allText = card.textContent || '';
-        // Hvis title var tom fallback til første del af tekst
-        if (!title) {
-          var firstLine = allText.split(/\n|  ·  /)[0];
-          title = firstLine.trim();
-        }
-        // Match første forekomst af "  ·  Value" — undgå at fange senere "·" fra fx datoer
+        // Match VORES specifikke "  ·  Value" pattern
         var match = allText.match(/  ·  ([^\n·]+?)(?:  ·  |\n|$)/);
-        var parent = '';
-        if (match) {
-          parent = match[1].trim();
-          if (parent === '—' || parent === '') parent = '';
-        }
-        return { title: title, parent: parent };
+        if (!match) return '';
+        var parent = match[1].trim();
+        if (parent === '—' || parent === '') return '';
+        return parent;
       }
 
-      // Cache: slug -> { title, parent }
-      var classificationCache = {};
-
       function cleanSummaryText(card) {
-        // Find tekstnoder i kortet der indeholder "  ·  ..." og fjern det suffix.
-        // React/Decap kan gen-rendere — så vi kører idempotent på hvert kald.
         var walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, null);
         var node;
         var nodesToClean = [];
         while ((node = walker.nextNode())) {
           var txt = node.textContent || '';
           var idx = txt.indexOf('  ·  ');
-          if (idx !== -1) {
-            nodesToClean.push({ node: node, idx: idx });
-          }
+          if (idx !== -1) nodesToClean.push({ node: node, idx: idx });
         }
         nodesToClean.forEach(function (item) {
           item.node.textContent = item.node.textContent.substring(0, item.idx);
         });
       }
 
-      function organizeTree() {
-        observerActive = false;
-        try {
-          var cards = findEntryCards();
-          if (cards.length === 0) return;
+      // Cache: slug -> parent (sticky — én gang sat, bevares)
+      var parentCache = {};
 
-          // Parse alle entries — brug cache for at undgå reklassifikation når Decap re-renderer
-          var entries = cards.map(function (c) {
-            var info;
-            if (c.slug && classificationCache[c.slug]) {
-              info = classificationCache[c.slug];
-            } else {
-              info = parseEntry(c.card);
-              // Cache kun hvis vi fik en troværdig title (Decap har renderet)
-              if (info.title && c.slug) classificationCache[c.slug] = info;
+      function applyBadges() {
+        var cards = findEntryCards();
+        if (cards.length === 0) return;
+
+        // Saml alle titler, så vi kan validere parent-værdier
+        var allTitles = new Set();
+        cards.forEach(function (c) {
+          var titleEl = c.card.querySelector('h2, h3, [role="heading"]');
+          if (titleEl) allTitles.add((titleEl.textContent || '').trim());
+        });
+
+        cards.forEach(function (c) {
+          var parent;
+          if (c.slug && parentCache[c.slug] !== undefined) {
+            parent = parentCache[c.slug];
+          } else {
+            parent = parseParent(c.card);
+            // Kun gem hvis kortet er fuldt renderet (har H2)
+            if (c.card.querySelector('h2, h3, [role="heading"]') && c.slug) {
+              parentCache[c.slug] = parent;
             }
-            return { card: c.card, anchor: c.anchor, slug: c.slug, title: info.title, parent: info.parent };
-          });
-
-          // Map: title -> entry (kun for kort med kendt titel)
-          var byTitle = {};
-          var allTitles = new Set();
-          entries.forEach(function (e) {
-            if (e.title) {
-              byTitle[e.title] = e;
-              allTitles.add(e.title);
-            }
-          });
-
-          // Validér: parent skal være en eksisterende titel — ellers ignorer
-          entries.forEach(function (e) {
-            if (e.parent && !allTitles.has(e.parent)) {
-              e.parent = '';
-              if (e.slug && classificationCache[e.slug]) {
-                classificationCache[e.slug].parent = '';
-              }
-            }
-          });
-
-          // Identificér parents (titler der faktisk bruges som menuParent)
-          var parentTitles = new Set();
-          entries.forEach(function (e) {
-            if (e.parent) parentTitles.add(e.parent);
-          });
-
-          // Marker subpages og parents med klasser
-          entries.forEach(function (e) {
-            if (e.parent) {
-              e.card.classList.add('nlm-subpage');
-              e.card.classList.remove('nlm-parent');
-              e.card.setAttribute('data-nlm-parent', e.parent);
-            } else {
-              e.card.classList.remove('nlm-subpage');
-              e.card.removeAttribute('data-nlm-parent');
-              if (parentTitles.has(e.title)) {
-                e.card.classList.add('nlm-parent');
-                e.card.setAttribute('data-nlm-self', e.title);
-              } else {
-                e.card.classList.remove('nlm-parent');
-                e.card.removeAttribute('data-nlm-self');
-              }
-            }
-            // Fjern "  ·  Parent" / "  ·  —" suffix fra teksten (vises som badge i højre side i stedet)
-            cleanSummaryText(e.card);
-          });
-
-          // Flyt subpages så de står lige efter deres parent
-          entries.forEach(function (e) {
-            if (!e.parent) return;
-            var parentEntry = byTitle[e.parent];
-            if (!parentEntry) return;
-            // Indsæt efter parentens kort (men kun hvis vi ikke allerede er der)
-            var prev = e.card.previousElementSibling;
-            if (prev !== parentEntry.card && !(prev && prev.classList && prev.classList.contains('nlm-subpage') && prev.getAttribute('data-nlm-parent') === e.parent)) {
-              parentEntry.card.parentNode.insertBefore(e.card, parentEntry.card.nextSibling);
-            }
-          });
-
-          // Tilføj collapse-knapper til parents
-          entries.forEach(function (e) {
-            if (!parentTitles.has(e.title) || e.parent) return;
-            // Tjek om knap allerede findes
-            if (e.card.querySelector(':scope > .nlm-collapse-btn')) return;
-            var btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'nlm-collapse-btn';
-            btn.setAttribute('aria-label', 'Skjul/vis undersider');
-            btn.innerHTML = '▾';
-            btn.addEventListener('click', function (ev) {
-              ev.preventDefault();
-              ev.stopPropagation();
-              toggleCollapse(e.title);
-            });
-            e.card.appendChild(btn);
-
-            // Anvend persistent state
-            applyCollapseState(e.title);
-          });
-        } finally {
-          // Restart observation efter en kort delay så vores ændringer ikke trigger den
-          setTimeout(function () { observerActive = true; }, 50);
-        }
-      }
-
-      function toggleCollapse(parentTitle) {
-        var newState = !getCollapsedState(parentTitle);
-        setCollapsedState(parentTitle, newState);
-        applyCollapseState(parentTitle);
-      }
-
-      function applyCollapseState(parentTitle) {
-        var collapsed = getCollapsedState(parentTitle);
-        var parentCard = document.querySelector('.nlm-parent[data-nlm-self="' + cssEscape(parentTitle) + '"]');
-        if (parentCard) {
-          var btn = parentCard.querySelector('.nlm-collapse-btn');
-          if (btn) {
-            if (collapsed) btn.classList.add('nlm-collapsed');
-            else btn.classList.remove('nlm-collapsed');
           }
-        }
-        var subs = document.querySelectorAll('.nlm-subpage[data-nlm-parent="' + cssEscape(parentTitle) + '"]');
-        subs.forEach(function (s) {
-          if (collapsed) s.classList.add('nlm-hidden');
-          else s.classList.remove('nlm-hidden');
+          // Validér: parent skal være en kendt titel
+          if (parent && !allTitles.has(parent)) parent = '';
+
+          if (parent) {
+            c.card.classList.add('nlm-subpage');
+            c.card.setAttribute('data-nlm-parent', parent);
+          } else {
+            c.card.classList.remove('nlm-subpage');
+            c.card.removeAttribute('data-nlm-parent');
+          }
+          cleanSummaryText(c.card);
         });
       }
 
-      function cssEscape(str) {
-        return (str || '').replace(/(["\\])/g, '\\$1');
-      }
-
-      function debouncedOrganize() {
-        if (organizeTimeout) clearTimeout(organizeTimeout);
-        organizeTimeout = setTimeout(organizeTree, 100);
-      }
-
       var observer = new MutationObserver(function () {
-        if (observerActive) debouncedOrganize();
+        // Debounce så vi ikke loop'er
+        if (window.__nlmBadgeTimeout) clearTimeout(window.__nlmBadgeTimeout);
+        window.__nlmBadgeTimeout = setTimeout(applyBadges, 100);
       });
       observer.observe(document.body, { childList: true, subtree: true });
 
-      // Initial trigger — efterfølgende ændringer fanges af MutationObserver
-      setTimeout(organizeTree, 500);
-      setTimeout(organizeTree, 1500);
+      setTimeout(applyBadges, 500);
+      setTimeout(applyBadges, 1500);
     }
 
     setup();
