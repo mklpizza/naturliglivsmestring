@@ -1,5 +1,5 @@
 ---
-title: Meg angst
+title: Angst2
 image: https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&auto=format&fit=crop&q=80
 imageAlt: Person på strand der kigger ud mod horisonten
 excerpt: Angst er ikke svaghed. Det er en del af dig, der forsøger at beskytte
