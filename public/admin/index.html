@@ -368,14 +368,21 @@
         return cards;
       }
 
-      function parseParent(card) {
+      function parseParent(card, allTitles) {
         var allText = card.textContent || '';
-        // Match VORES specifikke "  ·  Value" pattern
-        var match = allText.match(/  ·  ([^\n·]+?)(?:  ·  |\n|$)/);
-        if (!match) return '';
-        var parent = match[1].trim();
-        if (parent === '—' || parent === '') return '';
-        return parent;
+        // Slå parent op blandt KENDTE side-titler — robust mod editorial-workflow status-tekst osv.
+        // Find længste matchende titel der står efter "  ·  "
+        var sortedTitles = Array.from(allTitles || []).sort(function (a, b) {
+          return b.length - a.length;
+        });
+        for (var i = 0; i < sortedTitles.length; i++) {
+          var title = sortedTitles[i];
+          if (!title) continue;
+          if (allText.indexOf('  ·  ' + title) !== -1) {
+            return title;
+          }
+        }
+        return '';
       }
 
       function cleanSummaryText(card) {
@@ -399,26 +406,24 @@
         var cards = findEntryCards();
         if (cards.length === 0) return;
 
-        // Saml alle titler, så vi kan validere parent-værdier
+        // Saml alle titler — fra H2 OG fra slug-fallback
         var allTitles = new Set();
         cards.forEach(function (c) {
           var titleEl = c.card.querySelector('h2, h3, [role="heading"]');
-          if (titleEl) allTitles.add((titleEl.textContent || '').trim());
+          if (titleEl) {
+            var t = (titleEl.textContent || '').trim();
+            if (t) allTitles.add(t);
+          }
         });
 
         cards.forEach(function (c) {
           var parent;
-          if (c.slug && parentCache[c.slug] !== undefined) {
+          if (c.slug && parentCache[c.slug]) {
             parent = parentCache[c.slug];
           } else {
-            parent = parseParent(c.card);
-            // Kun gem hvis kortet er fuldt renderet (har H2)
-            if (c.card.querySelector('h2, h3, [role="heading"]') && c.slug) {
-              parentCache[c.slug] = parent;
-            }
+            parent = parseParent(c.card, allTitles);
+            if (parent && c.slug) parentCache[c.slug] = parent;
           }
-          // Validér: parent skal være en kendt titel
-          if (parent && !allTitles.has(parent)) parent = '';
 
           if (parent) {
             c.card.classList.add('nlm-subpage');
