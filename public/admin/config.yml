@@ -6,12 +6,6 @@ backend:
   auth_endpoint: api/oauth
 
 locale: da
-
-# Editorial workflow giver:
-#  - "Gem" knap (gemmer som kladde — ikke live endnu)
-#  - "Status" dropdown (kladde / under review / klar)
-#  - "Publicer" knap (gør siden live)
-publish_mode: editorial_workflow
 site_url: https://naturliglivsmestring.vercel.app
 display_url: https://naturliglivsmestring.vercel.app
 
