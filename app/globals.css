@@ -98,10 +98,16 @@ h1, h2, h3, h4, h5, h6 {
 /* Two-column layout: text + image side by side */
 .prose-naturlig .billede-sektion {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 3rem;
   align-items: start;
   margin: 2.5rem 0;
+}
+
+.prose-naturlig .billede-sektion > div {
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .prose-naturlig .billede-sektion > div:has(> p > img),

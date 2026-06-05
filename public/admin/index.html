@@ -29,13 +29,13 @@
 
     function renderBlockPreview(text, image, alt, imageRight) {
       var imgHtml = image
-        ? '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(alt) + '" style="width:100%;border-radius:18px;box-shadow:0 4px 20px rgba(61,53,41,0.10);"/>'
+        ? '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(alt) + '" style="display:block;width:100%;max-width:100%;height:auto;border-radius:18px;box-shadow:0 4px 20px rgba(61,53,41,0.10);"/>'
         : '<div style="background:#EBF0EC;padding:50px 20px;text-align:center;border-radius:18px;color:#6B5E52;font-size:13px;">Vælg et billede</div>';
-      var textHtml = '<div style="font-family:Raleway,sans-serif;color:#4A3F35;line-height:1.7;font-size:15px;">' + (text || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n\n+/g, '</p><p>').replace(/\n/g, '<br/>') + '</div>';
+      var textHtml = '<div style="font-family:Raleway,sans-serif;color:#4A3F35;line-height:1.7;font-size:15px;word-wrap:break-word;overflow-wrap:break-word;">' + (text || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n\n+/g, '</p><p>').replace(/\n/g, '<br/>') + '</div>';
       textHtml = '<p style="margin:0;">' + textHtml.replace(/<div[^>]*>/, '').replace(/<\/div>$/, '') + '</p>';
       var left = imageRight ? textHtml : imgHtml;
       var right = imageRight ? imgHtml : textHtml;
-      return '<div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;margin:28px 0;padding:8px;border:1px dashed rgba(212,196,168,0.6);border-radius:8px;"><div>' + left + '</div><div>' + right + '</div></div>';
+      return '<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center;margin:28px 0;padding:8px;border:1px dashed rgba(212,196,168,0.6);border-radius:8px;"><div style="min-width:0;overflow:hidden;">' + left + '</div><div style="min-width:0;overflow:hidden;">' + right + '</div></div>';
     }
 
     var PREVIEW_CSS = [
@@ -67,7 +67,8 @@
       ".nlm-body strong { color: #3D3529; font-weight: 600; }",
       ".nlm-body em { color: #6B5E52; }",
       ".nlm-body img { width: 100%; border-radius: 18px; margin: 24px 0; box-shadow: 0 4px 20px rgba(61,53,41,0.10); }",
-      ".nlm-body .billede-sektion { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; margin: 28px 0; }",
+      ".nlm-body .billede-sektion { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 28px; align-items: center; margin: 28px 0; }",
+      ".nlm-body .billede-sektion > div { min-width: 0; overflow: hidden; word-wrap: break-word; }",
       ".nlm-body .billede-sektion img { margin: 0; }",
       ".nlm-cta { max-width: 720px; margin: 0 auto 50px; padding: 28px 32px; background: #5A7A65; color: #F5F0E8; border-radius: 20px; text-align: center; }",
       ".nlm-cta h3 { font-family: 'Lora', Georgia, serif; font-size: 22px; margin: 0 0 6px; color: #F5F0E8; }",
