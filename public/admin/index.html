@@ -345,6 +345,19 @@
         '}',
         '.nlm-subpage > *:first-child { border-left: 3px solid rgba(124,152,133,0.45) !important; padding-left: 12px !important; }',
         '.nlm-subpage.nlm-hidden { display: none !important; }',
+        /* Parent badge i højre side */
+        '.nlm-subpage::after {',
+        '  content: "↳ " attr(data-nlm-parent);',
+        '  position: absolute; right: 20px; top: 50%;',
+        '  transform: translateY(-50%);',
+        '  background: rgba(124,152,133,0.15);',
+        '  color: #5A7A65;',
+        '  padding: 4px 12px; border-radius: 999px;',
+        '  font-size: 11px; font-weight: 600;',
+        '  letter-spacing: 0.02em;',
+        '  pointer-events: none; z-index: 1;',
+        '  white-space: nowrap;',
+        '}',
         /* Parent — chevron knap */
         '.nlm-parent { position: relative; }',
         '.nlm-collapse-btn {',
@@ -418,6 +431,24 @@
       // Cache: slug -> { title, parent }
       var classificationCache = {};
 
+      function cleanSummaryText(card) {
+        // Find tekstnoder i kortet der indeholder "  ·  ..." og fjern det suffix.
+        // React/Decap kan gen-rendere — så vi kører idempotent på hvert kald.
+        var walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, null);
+        var node;
+        var nodesToClean = [];
+        while ((node = walker.nextNode())) {
+          var txt = node.textContent || '';
+          var idx = txt.indexOf('  ·  ');
+          if (idx !== -1) {
+            nodesToClean.push({ node: node, idx: idx });
+          }
+        }
+        nodesToClean.forEach(function (item) {
+          item.node.textContent = item.node.textContent.substring(0, item.idx);
+        });
+      }
+
       function organizeTree() {
         observerActive = false;
         try {
@@ -480,6 +511,8 @@
                 e.card.removeAttribute('data-nlm-self');
               }
             }
+            // Fjern "  ·  Parent" / "  ·  —" suffix fra teksten (vises som badge i højre side i stedet)
+            cleanSummaryText(e.card);
           });
 
           // Flyt subpages så de står lige efter deres parent
