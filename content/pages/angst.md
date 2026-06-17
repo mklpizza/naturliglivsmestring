@@ -1,5 +1,5 @@
 ---
-title: Angst
+title: Sunde grænser
 image: https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&auto=format&fit=crop&q=80
 imageAlt: Person på strand der kigger ud mod horisonten
 excerpt: Angst er ikke svaghed. Det er en del af dig, der forsøger at beskytte
@@ -7,7 +7,6 @@ excerpt: Angst er ikke svaghed. Det er en del af dig, der forsøger at beskytte
 description: Forstå din angst, og find veje til mere ro. Online coaching til
   dig, der kæmper med angst i hverdagen.
 ---
-
 <div class="billede-sektion">
 <div>
 
@@ -17,19 +16,19 @@ Angst er kroppens og sinnets måde at reagere på oplevede trusler — det er fa
 
 Angst kan vise sig som:
 
-- En konstant uro eller indre rastløshed
-- Hjertebanken, spændte muskler eller åndedrætsbesvær
-- Bekymringer, der kører i ring og ikke giver slip
-- Undgåelse af situationer, der føles truende
-- Panikangst med pludselige, intense angstanfald
-- Social angst og frygt for andres bedømmelse
+* En konstant uro eller indre rastløshed
+* Hjertebanken, spændte muskler eller åndedrætsbesvær
+* Bekymringer, der kører i ring og ikke giver slip
+* Undgåelse af situationer, der føles truende
+* Panikangst med pludselige, intense angstanfald
+* Social angst og frygt for andres bedømmelse
 
 Uanset hvordan angsten viser sig hos dig, er den reel. Og du behøver ikke at klare den alene.
 
 </div>
 <div>
 
-![Person der sidder roligt ved vandet](https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&auto=format&fit=crop&q=80)
+![Person der sidder roligt ved vandet](/images/uploads/beach-4530127_1280-1-.jpg)
 
 </div>
 </div>
