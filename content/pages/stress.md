@@ -1,26 +1,37 @@
 ---
-title: "Stress"
-description: "Er du kørt fast i stressspiralen? Online coaching hjælper dig med at finde vej til mere ro og balance."
-image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&auto=format&fit=crop&q=80"
-imageAlt: "Person der hviler fredeligt ved vandet"
-excerpt: "Stress er ikke et tegn på, at du er svag. Det er et tegn på, at du har prøvet at være stærk for længe."
+title: Stressfælder
+image: https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&auto=format&fit=crop&q=80
+imageAlt: Person der hviler fredeligt ved vandet
+excerpt: Stress er ikke ens for alle - derfor skal hjælpen heller ikke være det.
+description: Er du kørt fast i stressspiralen? Online coaching hjælper dig med
+  at finde vej til mere ro og balance.
 ---
-
 <div class="billede-sektion">
 <div>
 
-## Hvad er stress?
+## Der er ikke noget at skamme sig over
 
-Stress opstår, når kravene til dig overstiger de ressourcer, du oplever at have. Det er en biologisk reaktion, der er designet til at hjælpe dig i kortvarige, truende situationer. Problemet er, at vores kroppe ikke skelner godt mellem en akut fare og en kronisk overbelastning — og betaler prisen med tid.
+Du er ikke alene - det er ikke dig der er forkert.
 
-Stress kan vise sig på mange måder:
+Mange skjuler deres stress, af skam, fordi det virker uoverskueligt at tale om og ordene mangler. Andre tror at de bare skal tage sig sammen. Stress viser sig forskelligt fra person til person.
 
-- Konstant træthed, selv efter søvn
-- Koncentrationsbesvær og glemsel
-- Irritabilitet og korthed i reaktioner
-- Fysiske symptomer som spændingshovedpine, maveproblemer eller hjertebanken
-- Manglende lyst til ting, du tidligere nød
-- En følelse af aldrig at komme til bunds i bunken
+Med min mangeårige erfaring som socialrådgiver, med stress-ramte, har jeg tit oplevet på samme arbejdsplads, men af vidt forskellige årsager.
+
+Derfor virker "one size fits all - løsninger" ikke -og derfor skal du have redskaber der passer til din situation, ikke en general skabelon.
+
+
+
+
+
+Stress kan dukke op ved:
+
+\    Alt for høje krav
+
+* meningsløse og trivielle arbejdsopgaver
+* For meget ansvar
+* Du bliver ignoreret og ikke taget alvorligt
+* Du mangler selvbestemmelse og anerkendelse
+* buerukrati i den offentlige sektor
 
 </div>
 <div>
