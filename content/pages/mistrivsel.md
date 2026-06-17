@@ -1,26 +1,27 @@
 ---
-title: "Mistrivsel"
-description: "Noget føles ikke rigtigt, men det er svært at sætte ord på. Coaching til dig, der mistrives og søger vej tilbage til dig selv."
-image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&auto=format&fit=crop&q=80"
-imageAlt: "Person i stille, eftertænksom stemning"
-excerpt: "Mistrivsel behøver ikke at have et navn eller en diagnose for at være reel. Hvis du ikke har det godt, er det nok."
+title: Mistrivsel
+image: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&auto=format&fit=crop&q=80
+imageAlt: Person i stille, eftertænksom stemning
+excerpt: Voksne der mistrives er helt naturligt. Det sker når dit liv ikke
+  længere passer, til den person du er blevet til og inderst inde er i dag.
+description: Noget føles ikke rigtigt, men det er svært at sætte ord på.
+  Coaching til dig, der mistrives og søger vej tilbage til dig selv.
 ---
-
 <div class="billede-sektion">
 <div>
 
 ## Hvad er mistrivsel?
 
-Mistrivsel er ikke altid et dramatisk brud. Det er ofte en langsomt voksende fornemmelse af, at noget er galt — uden at man nødvendigvis kan sætte præcis en finger på det.
+Mistrivsel er ikke altid dramatiske følelser. Det er ofte en langsomt voksende fornemmelse af, at noget er galt — uden at man nødvendigvis kan sætte præcis en finger på det.
 
 Du trives måske ikke, hvis du:
 
-- Føler dig tom, grå eller ligeglad med ting, der engang betød noget
-- Sover dårligt eller sover for meget
-- Trækker dig fra mennesker og sociale situationer
-- Har svært ved at finde glæde eller mening i hverdagen
-- Føler dig fastlåst i mønstre, du ikke kan bryde
-- Oplever, at du bare overlever — ikke lever
+* Føler dig tom, grå eller ligeglad med ting, der engang betød noget
+* Sover dårligt eller sover for meget
+* Trækker dig fra mennesker og sociale situationer
+* Har svært ved at finde glæde eller mening i hverdagen
+* Føler dig fastlåst i mønstre, du ikke kan bryde
+* Oplever, at du bare overlever — ikke lever
 
 Mistrivsel er ikke det samme som depression, men det kan udvikle sig derhen, hvis det ignoreres. Det er et signal, der er værd at lytte til.
 
