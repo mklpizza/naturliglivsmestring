@@ -15,9 +15,9 @@ Du er ikke alene - det er ikke dig der er forkert.
 
 Mange skjuler deres stress, af skam, fordi det virker uoverskueligt at tale om og ordene mangler. Andre tror at de bare skal tage sig sammen. Stress viser sig forskelligt fra person til person.
 
-Med min mangeårige erfaring som socialrådgiver, med stress-ramte, har jeg tit oplevet på samme arbejdsplads, men af vidt forskellige årsager.
+Med min mangeårige erfaring som socialrådgiver, med stress-ramte, har jeg tit oplevet flere stressede medarbejdere på samme arbejdsplads, men af vidt forskellige årsager.
 
-Derfor virker "one size fits all - løsninger" ikke -og derfor skal du have redskaber der passer til din situation, ikke en general skabelon.
+Derfor virker "one size fits all - løsninger" ikke - og derfor skal du have redskaber der passer til din situation, ikke en general skabelon.
 
 
 
@@ -25,8 +25,7 @@ Derfor virker "one size fits all - løsninger" ikke -og derfor skal du have reds
 
 Stress kan dukke op ved:
 
-\    Alt for høje krav
-
+* alt for høje krav
 * meningsløse og trivielle arbejdsopgaver
 * For meget ansvar
 * Du bliver ignoreret og ikke taget alvorligt
