@@ -60,7 +60,7 @@ Mange stressfælder er ubevidste og tabubelagte, når de opdages.
 
 **Lystfælden** - Du elsker dit job så højt, at du knokler løs af egen fri vilje og ser ikke alamsignalerne.
 
-Symptomerne på udbrændthed inkluderer dyb træthed, følelsesmæssig afstumpethed og en manglende evne til at finde mening i det, man laver. Det er en seriøs tilstand, der kræver tid og pleje at komme ud af.
+Der er mange andre fælder og du kan også fanget af flere af dem på én gang.
 
 </div>
 </div>
@@ -71,7 +71,7 @@ Jeg hjælper dig med at:
 
 **Forstå din stress** — hvad der driver den, og hvad der holder den i gang.
 
-**Sætte grænser** — at lære at sige nej, delegere og prioritere — uden skyld.
+**Sætte grænser** — at lære at sige nej, uden skyld og skam, men med værdighed.
 
 **Genoprette balance** — at finde bæredygtige rytmer i hverdagen, der giver plads til genopretning.
 
