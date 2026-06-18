@@ -19,10 +19,6 @@ Med min mangeårige erfaring som socialrådgiver, med stress-ramte, har jeg tit 
 
 Derfor virker "one size fits all - løsninger" ikke - og derfor skal du have redskaber der passer til din situation, ikke en general skabelon.
 
-
-
-
-
 Stress kan dukke op ved:
 
 * alt for høje krav
@@ -48,15 +44,21 @@ Stress kan dukke op ved:
 </div>
 <div>
 
-## Kronisk stress — når det varer for længe
+## De farlige stressfælder
 
-Kortvarig stress er normal. Kronisk stress er farlig. Når kroppen er i konstant alarmberedskab i uger og måneder, begynder den at slide. Immunforsvaret svækkes, søvnkvaliteten falder, og risikoen for udbrændthed stiger.
+Stress handler ikke altid om for meget arbejde som man påduttes af andre. 
 
-Mange fortsætter med at kæmpe videre, selvom kroppen sender tydelige signaler. Måske fordi de ikke har råd til at stoppe op. Måske fordi de ikke ved, at det er okay at bede om hjælp.
+Mange stressfælder er ubevidste og tabubelagte, når de opdages.
 
 **Det er okay. Det er faktisk modigt.**
 
-Udbrændthed er slet ikke ensbetydende med svaghed. Det er slutstationen for folk, der har givet sig fuldt ud — i jobbet, i familien, i relationer — og til sidst ikke har haft noget tilbage til sig selv.
+Anerkendelsesfælden - du tilpasser dig for at være vellidt og få anerkendelse og være "go nok"
+
+Flugtfælden - Du flygter ind i arbejdet, for at kompensere, for alt støj og uro i privatlivet.
+
+Pligtfælden - Du er styret af pligtfølelse, og tror at det er din opgave er alt løse alt omkring dig.
+
+Lystfælden - Du elsker dit job så højt, at du knokler løs af egen fri vilje og ser ikke alamsignalerne.
 
 Symptomerne på udbrændthed inkluderer dyb træthed, følelsesmæssig afstumpethed og en manglende evne til at finde mening i det, man laver. Det er en seriøs tilstand, der kræver tid og pleje at komme ud af.
 
