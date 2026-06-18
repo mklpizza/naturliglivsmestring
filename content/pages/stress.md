@@ -50,15 +50,15 @@ Stress handler ikke altid om for meget arbejde som man påduttes af andre.
 
 Mange stressfælder er ubevidste og tabubelagte, når de opdages.
 
-**Det er okay. Det er faktisk modigt.**
+**Du er ikke alene, det er bare svært at se det selv.**
 
-Anerkendelsesfælden - du tilpasser dig for at være vellidt og få anerkendelse og være "go nok"
+**Anerkendelsesfælden** - du tilpasser dig for at være vellidt og få anerkendelse og være "go nok"
 
-Flugtfælden - Du flygter ind i arbejdet, for at kompensere, for alt støj og uro i privatlivet.
+**Flugtfælden** - Du flygter ind i arbejdet, for at kompensere, for alt støj og uro i privatlivet.
 
-Pligtfælden - Du er styret af pligtfølelse, og tror at det er din opgave er alt løse alt omkring dig.
+**Pligtfælden** - Du er styret af pligtfølelse, og tror at det er din opgave er alt løse alt omkring dig.
 
-Lystfælden - Du elsker dit job så højt, at du knokler løs af egen fri vilje og ser ikke alamsignalerne.
+**Lystfælden** - Du elsker dit job så højt, at du knokler løs af egen fri vilje og ser ikke alamsignalerne.
 
 Symptomerne på udbrændthed inkluderer dyb træthed, følelsesmæssig afstumpethed og en manglende evne til at finde mening i det, man laver. Det er en seriøs tilstand, der kræver tid og pleje at komme ud af.
 
