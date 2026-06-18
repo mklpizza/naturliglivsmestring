@@ -73,12 +73,12 @@ Jeg hjælper dig med at:
 
 **Sætte grænser** — at lære at sige nej, uden skyld og skam, men med værdighed.
 
-**Genoprette balance** — at finde bæredygtige rytmer i hverdagen, der giver plads til genopretning.
+**Genoprette balance** — at finde bæredygtige rytmer i hverdagen, som passer til dig.
 
-**Arbejde med tanker** — mange stressede mennesker har tanker, der forstærker stressfølelsen. Vi arbejder med dem.
+**Forebyggelse af stress** — At blive bevidst om hvad der foregår i dit ydre liv og de indre fortolkninger.
 
 **Gradvis tilbagevenden** — er du midt i en sygemelding, hjælper jeg dig med at planlægge vejen tilbage.
 
 ## Tag det første skridt
 
-Du behøver ikke at have det hele fundet ud af, før du kontakter mig. En samtale er nok til at komme i gang.
+Du behøver ikke at have styr på det hele, før du kontakter mig. En samtale er nok til at komme i gang.
