@@ -31,7 +31,7 @@ Stress kan dukke op ved:
 </div>
 <div>
 
-![Person der sidder roligt i naturen og finder ro](https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&auto=format&fit=crop&q=80)
+![Person der sidder roligt i naturen og finder ro](/images/uploads/graes-taet-pa.jpg)
 
 </div>
 </div>
