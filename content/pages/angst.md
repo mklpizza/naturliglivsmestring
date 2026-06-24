@@ -28,7 +28,7 @@ Uanset hvordan angsten viser sig hos dig, er den reel. Og du behøver ikke at kl
 </div>
 <div>
 
-![Person der sidder roligt ved vandet](/images/uploads/beach-4530127_1280-1-.jpg)
+![Person der sidder roligt ved vandet](/images/uploads/graes-taet-pa.jpg)
 
 </div>
 </div>
