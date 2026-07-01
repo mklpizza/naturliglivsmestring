@@ -1,9 +1,11 @@
 ---
-title: "Manipulation"
-description: "Lær at genkende manipulative mønstre i relationer og find vej til at sætte grænser og beskytte dig selv."
-image: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&auto=format&fit=crop&q=80"
-imageAlt: "Person ved havet med blik mod horisonten"
-excerpt: "Manipulation er svær at se, når man er midt i det. Det er ikke din skyld — men det er din ret at komme ud af det."
+title: Sunde grænser
+image: https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&auto=format&fit=crop&q=80
+imageAlt: Person ved havet med blik mod horisonten
+excerpt: Manipulation er svær at se, når man er midt i det. Det er ikke din
+  skyld — men det er din ret at komme ud af det.
+description: Lær at genkende manipulative mønstre i relationer og find vej til
+  at sætte grænser og beskytte dig selv.
 ---
 
 <div class="billede-sektion">
