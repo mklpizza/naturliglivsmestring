@@ -80,4 +80,4 @@ Vi arbejder med:
 
 ## Det første skridt
 
-Det kan føles svært at række ud. Men du er allerede i gang ved at læse dette. Kontakt mig for en uforpligtende samtale — og lad os se, om jeg kan hjælpe dig videre.
+Det kan føles svært at række ud. Men du er allerede i gang ved at læse dette. Kontakt mig for en uforpligtende samtale — og lad os se, hvordan jeg kan hjælpe dig videre.
