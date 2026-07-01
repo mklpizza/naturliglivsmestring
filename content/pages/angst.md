@@ -17,11 +17,11 @@ At du ved at en sygemelding er naturligt og de er i din gode ret til at accepter
 
 Mange fortæller at de føler
 
-* Skam - nu kan jeg ikke præstere og er "et svagt menneske"
-* Skyld - Jeg er skyld i at familien får problemer og min chef og kolleger, får en masse bøvl
-* Identitetstab - Jeg føler mig lille og uden betydning, når jeg møder nye mennesker, da jeg ikke har min arbejdsidentitet.
-* Fordømmelse - Hvad tænker andre om mig? Familie, venner, naboer og socialrådgiveren? Jeg tror at de mener, at jeg godt kan arbejde, at jeg ikke fejler noget, jeg vil bare gå hjemme i en periode.
-* At  jeg er sart og det psykiske arbejdsmiljø er uden betydning.
+* **Skam** - nu kan jeg ikke præstere og er "et svagt menneske"
+* **Skyld** - Jeg er skyld i at familien får problemer og min chef og kolleger, får en masse bøvl
+* **Identitetstab** - Jeg føler mig lille og uden betydning, når jeg møder nye mennesker, da jeg ikke har min arbejdsidentitet.
+* **Fordømmelse** - Hvad tænker andre om mig? Familie, venner, naboer og socialrådgiveren? Jeg tror at de mener, at jeg godt kan arbejde, at jeg ikke fejler noget, jeg vil bare gå hjemme i en periode.
+*  **Mindreværd**  -At  jeg er sart og det psykiske arbejdsmiljø er uden betydning.
 * Social angst og frygt for andres bedømmelse
 
 Uanset hvordan angsten viser sig hos dig, er den reel. Og du behøver ikke at klare den alene.
