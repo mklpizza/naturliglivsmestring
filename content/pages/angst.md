@@ -62,13 +62,13 @@ I vores samarbejde hjælper jeg dig med at komme styrket gennem din sygemelding.
 
 Vi arbejder med:
 
-**Forståelse** — at kortlægge dine angstmønstre og forstå, hvad de forsøger at fortælle dig.
+**Værdighed** — at føle dig værdig til at være sygemeldt.
 
-**Strategier til her og nu** — konkrete teknikker til at håndtere angst, når den opstår.
+**Samvittighed** — få konkrete teknikker til at håndtere din dårlige samvittighed.
 
-**Langsigtede forandringer** — at arbejde med de underliggende mønstre, der holder angsten i live.
+**Gevinsten** — at få det bedste ud af de forandringer der sker i dit liv.
 
-**Gradvis eksponering** — at nærme dig det, du undgår, i et tempo du kan klare.
+**Mental styrke** — at du påirker din egen sygemelding mest muligt.
 
 </div>
 <div>
