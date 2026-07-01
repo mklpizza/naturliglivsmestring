@@ -1,26 +1,27 @@
 ---
-title: Sunde grænser
+title: Sygemeldt
 image: https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&auto=format&fit=crop&q=80
 imageAlt: Person på strand der kigger ud mod horisonten
-excerpt: Angst er ikke svaghed. Det er en del af dig, der forsøger at beskytte
-  dig — men som sommetider gør det for hårdt.
+excerpt: Alle kan risikere at blive sygemeldt. Jeg ved som Socialrådgiver, at
+  mange går for længe i mistrivsel fordi de føler skam og skyld ved at være
+  sygemeldt. I Danmark er det for mange et svaghedstegn.
 description: Forstå din angst, og find veje til mere ro. Online coaching til
   dig, der kæmper med angst i hverdagen.
 ---
 <div class="billede-sektion">
 <div>
 
-## Hvad er angst?
+## Hvad er det, at være sygemeldt med værdighed?
 
-Angst er kroppens og sinnets måde at reagere på oplevede trusler — det er faktisk en naturlig og vigtig funktion. Problemet opstår, når angsten bliver uforholdsmæssig stor, eller når den begynder at styre dit liv på måder, du ikke ønsker.
+At du ved at en sygemelding er naturligt og de er i din gode ret til at acceptere det og få det bedste ud af det på sigt. Du skal ikke snige dig langs husmure eller klæde dig ud, hvis du skal ud at handle eller andet. Når det ikke handler om et brækket ben eller andet synligt, føler mange mindreværdighed.
 
-Angst kan vise sig som:
+Mange fortæller at de føler
 
-* En konstant uro eller indre rastløshed
-* Hjertebanken, spændte muskler eller åndedrætsbesvær
-* Bekymringer, der kører i ring og ikke giver slip
-* Undgåelse af situationer, der føles truende
-* Panikangst med pludselige, intense angstanfald
+* Skam - nu kan jeg ikke præstere og er "et svagt menneske"
+* Skyld - Jeg er skyld i at familien får problemer og min chef og kolleger, får en masse bøvl
+* Identitetstab - Jeg føler mig lille og uden betydning, når jeg møder nye mennesker, da jeg ikke har min arbejdsidentitet.
+* Fordømmelse - Hvad tænker andre om mig? Familie, venner, naboer og socialrådgiveren? Jeg tror at de mener, at jeg godt kan arbejde, at jeg ikke fejler noget, jeg vil bare gå hjemme i en periode.
+* At  jeg er sart og det psykiske arbejdsmiljø er uden betydning.
 * Social angst og frygt for andres bedømmelse
 
 Uanset hvordan angsten viser sig hos dig, er den reel. Og du behøver ikke at klare den alene.
@@ -57,7 +58,7 @@ Angst kan betyde, at du undgår situationer, som andre håndterer med lethed. De
 
 ## Hvordan arbejder vi med det?
 
-I vores samarbejde begynder vi med at forstå din angst — hvad den udløses af, hvordan den viser sig, og hvilken rolle den spiller i dit liv.
+I vores samarbejde hjælper jeg dig med at komme styrket gennem din sygemelding. Dine følelser og tanker er naurlige og kan bruges konstruktivt til dit eget bedste fra uværdighed til værdighed.
 
 Vi arbejder med:
 
