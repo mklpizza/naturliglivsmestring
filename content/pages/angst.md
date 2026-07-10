@@ -21,7 +21,7 @@ Mange fortæller at de føler
 * **Skyld** - Jeg er skyld i at familien får problemer og min chef og kolleger, får en masse bøvl
 * **Identitetstab** - Jeg føler mig lille og uden betydning, når jeg møder nye mennesker, da jeg ikke har min arbejdsidentitet.
 * **Fordømmelse** - Hvad tænker andre om mig? Familie, venner, naboer og socialrådgiveren? Jeg tror at de mener, at jeg godt kan arbejde, at jeg ikke fejler noget, jeg vil bare gå hjemme i en periode.
-*  **Mindreværd**  -At  jeg er sart og det psykiske arbejdsmiljø er uden betydning.
+* **Mindreværd**  -At  jeg er sart og det psykiske arbejdsmiljø er uden betydning.
 * Social angst og frygt for andres bedømmelse
 
 Uanset hvordan angsten viser sig hos dig, er den reel. Og du behøver ikke at klare den alene.
@@ -42,13 +42,13 @@ Uanset hvordan angsten viser sig hos dig, er den reel. Og du behøver ikke at kl
 </div>
 <div>
 
-## Angst i hverdagen
+## Psykisk mistrivsel
 
-Mange, der lever med angst, beskriver en konstant træthed — ikke bare fysisk, men en træthed over at kæmpe. Hjernen arbejder i overtid. Det er udmattende at navigere verden, når alt føles som en potentiel fare.
+Mange, der sygemeldes af psykiske årsager har mere dårlig samvittighed end dem der har fysiske udfordringer. Et brækket ben eller en arm kan vises frem og alle kan se problemer, Sådan er det ikke når det er, den mentale del af kroppen der rammes og sætter kroppen ud af funktion.
 
-Angst kan betyde, at du undgår situationer, som andre håndterer med lethed. Det kan føre til ensomhed, skam og en følelse af, at du er anderledes eller svag.
+Det betyder for mange, at de stopper med det sociale liv, fordi der er skam forbundet med at andre tror at man ikke fejler noget
 
-**Du er ikke svag. Du er et menneske, der bærer på noget tungt.**
+**Lad andre tænke hvad de vil - du skal  bare koncentrere dig om dig selv.**
 
 </div>
 </div>
@@ -68,7 +68,7 @@ Vi arbejder med:
 
 **Gevinsten** — at få det bedste ud af de forandringer der sker i dit liv.
 
-**Mental styrke** — at du påirker din egen sygemelding mest muligt.
+**Mental styrke** — at du påvirker din egen sygemelding mest muligt.
 
 </div>
 <div>
