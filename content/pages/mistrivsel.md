@@ -6,23 +6,23 @@ excerpt: Voksne der mistrives er helt naturligt. Det sker når dit liv ikke
   længere passer, til den person du er blevet til og er i dag. Derfor siger du
   "ja", når du mener "nej". Du mangler grænser.
 description: Noget føles ikke rigtigt, men det er svært at sætte ord på.
-  Coaching til dig, der mistrives og søger vej tilbage til dig selv.
+  Vejledning til dig, der mistrives og søger vejen til dit nye jeg.
 ---
 <div class="billede-sektion">
 <div>
 
 ## Hvad er mistrivsel?
 
-Mistrivsel er ikke altid dramatiske følelser. Det er ofte en langsomt voksende fornemmelse af, at noget er galt — uden at du nødvendigvis kan sætte de præcise ord på.
+Mistrivsel er ikke altid dramatiske følelser. Det kommer ofte snigende, som en langsomt voksende fornemmelse af, at noget er galt - uden at du nødvendigvis kan sætte de præcise ord på.
 
 Du trives måske ikke, hvis du:
 
-* Føler dig tom, grå eller ligeglad med ting, der engang betød noget
+* Føler dig tom og ligeglad med hvad der sker omkring dig
 * Sover dårligt eller sover for meget
 * Trækker dig fra mennesker og sociale situationer
 * Har svært ved at finde glæde eller mening i hverdagen
 * Følelsen af at være ved siden af dig selv
-* Oplever, at du bare overlever — ikke lever
+* Oplever, at du bare ikke lever - men bare overlever
 
 Mistrivsel kan udvikle sig til depression, og sygemelding, hvis det ignoreres. Det er et signal, der er vigtigt at lytte til.
 
@@ -36,7 +36,9 @@ Mistrivsel kan udvikle sig til depression, og sygemelding, hvis det ignoreres. D
 
 ## Det er ikke et tegn på utaknemlighed
 
-I dag er det naturligt at mange skifter spor. Ikke for at flygte, men for at leve det autentiske liv, som den de er i dag. Der er ikke noget galt med dig, livet passer bare ikke til den, du er nu.
+I dag er det naturligt at mange skifter spor. 
+
+Ikke for at flygte, men for at leve det autentiske liv, som den de er i dag. Der er ikke noget galt med dig, livet passer bare ikke til den, du er nu.
 
 Nogle flytter fra byen og på landet eller omvendt. Andre skifter partner, job, bliver selvstændig og står af hamsterhjulet og begynder på et helt nyt liv, midt i livet. Det er en helt naturlig udvikling der finder sted.
 
@@ -54,15 +56,15 @@ Nogle flytter fra byen og på landet eller omvendt. Andre skifter partner, job, 
 
 Mistrivsel kan have mange rødder:
 
-**Et job der dræner dig** — opgaverne giver ikke længere mening og du spilder dit liv.
+**Et job der dræner dig**  - opgaverne giver ikke længere mening og du spilder dit liv.
 
-**Et parforhold** — der er blevet en rutine og i vil ikke det samme længere.
+**Et parforhold**  - der er blevet en rutine og i vil ikke det samme længere.
 
-**En bolig der ikke føles som dit hjem** — det er blevet et udstillingsvindue, som ikke afspejler dig længere.
+**En bolig der ikke føles som dit hjem**  - det er blevet et udstillingsvindue, som ikke afspejler dig længere.
 
-**En uddannelse**  —  som du valgte med hovedet, men ikke med hjertet
+**En uddannelse**  -  som du valgte med hovedet, men ikke med hjertet
 
-**Relationer** — hvor du skal være en version af dig selv, som du ikke længere selv tror på
+**Relationer**  - hvor du skal være en version af dig selv, som du ikke længere selv tror på
 
 </div>
 </div>
@@ -73,13 +75,13 @@ Jer hjælper dig med at finde ordene og modet til at sætte grænser, så du kan
 
 Vi arbejder med:
 
-**Løsninger** — de er tætter på end du selv tror.
+**Løsninger** - de er tætter på end du selv tror.
 
-**At kortlægge det, der mangler** — hvad ønsker du dig egentlig? Hvad er første skridt og vejen frem?
+**At kortlægge det, der mangler** - hvad ønsker du dig egentlig? Hvad er første skridt og vejen frem?
 
-**At finde konkrete skridt** — vi finder frem til, hvad du kan gøre, stille og roligt, for at bevæge dig i en bedre retning.
+**At finde konkrete skridt**  -vi finder frem til, hvad du kan gøre, stille og roligt, for at bevæge dig i en bedre retning.
 
-**At styrke dig selv** — at genfinde dig selv og dine egne ressourcer.
+**At styrke dig selv**  - at genfinde dig selv og dine egne ressourcer.
 
 ## Du fortjener at have det godt
 
