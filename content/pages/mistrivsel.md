@@ -69,7 +69,7 @@ Mistrivsel kan have mange rødder:
 </div>
 </div>
 
-## Hvad kan vi gøre?
+## Hvad kan jeg gøre?
 
 Jer hjælper dig med at finde ordene og modet til at sætte grænser, så du kan begynde på det liv der giver mening for dig. De ærlige, stærke sætninger, du kan stå ved - og bruge bruge som afsæt til at skabe det liv du gerne vil have.
 
