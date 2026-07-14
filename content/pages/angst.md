@@ -13,7 +13,7 @@ description: Forstå din angst, og find veje til mere ro. Online coaching til
 
 ## Hvad er det, at være sygemeldt med værdighed?
 
-At du ved at en sygemelding er naturligt og de er i din gode ret til at acceptere det og få det bedste ud af det på sigt. Du skal ikke snige dig langs husmure eller klæde dig ud, hvis du skal ud at handle eller andet. Når det ikke handler om et brækket ben eller andet synligt, føler mange mindreværdighed.
+At du ved at en sygemelding er naturligt og du er i din gode ret til at acceptere det og få det bedste ud af det på sigt. Du skal ikke snige dig langs husmure eller klæde dig ud, hvis du skal ud at handle eller andet. Når det ikke handler om et brækket ben eller andet synligt, føler mange mindreværdighed.
 
 Mange fortæller at de føler
 
@@ -21,10 +21,10 @@ Mange fortæller at de føler
 * **Skyld** - Jeg er skyld i at familien får problemer og min chef og kolleger, får en masse bøvl
 * **Identitetstab** - Jeg føler mig lille og uden betydning, når jeg møder nye mennesker, da jeg ikke har min arbejdsidentitet.
 * **Fordømmelse** - Hvad tænker andre om mig? Familie, venner, naboer og socialrådgiveren? Jeg tror at de mener, at jeg godt kan arbejde, at jeg ikke fejler noget, jeg vil bare gå hjemme i en periode.
-* **Mindreværd**  -At  jeg er sart og det psykiske arbejdsmiljø er uden betydning.
-* Social angst og frygt for andres bedømmelse
+* **Mindreværd**  - At  jeg er sart og det psykiske arbejdsmiljø er uden betydning.
+*  Frygt- og social angst for andres bedømmelse
 
-Uanset hvordan angsten viser sig hos dig, er den reel. Og du behøver ikke at klare den alene.
+**Uanset hvordan uværdigheden sig hos dig, er den reel.**
 
 </div>
 <div>
