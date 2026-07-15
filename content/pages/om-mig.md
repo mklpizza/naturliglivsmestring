@@ -46,7 +46,7 @@ Jeg tror på, at alle mennesker har ressourcerne til at komme på den rette vej,
 
 ## Min tilgang
 
-Jeg arbejder ikke med diagnoser eller én-løsning-passer-alle. I stedet møder jeg dig, som du er, med din unikke historie og dine unikke behov.
+Jeg arbejder ikke med skabeloner og "one size fit´s all modeller og løsninger. I stedet  arbejder  jeg dig, som du er, med DINE unikke historie og DINE unikke behov.
 
 Vi arbejder med:
 
