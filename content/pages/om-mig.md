@@ -12,7 +12,7 @@ description: Lær mig lidt at kende — hvem jeg er, hvad jeg tror på, og hvord
 
 ## Hvem er jeg?
 
-Jeg er Socialrådgiver og Trivselsvejleder. Jeg har i mange år arbejdet med mennesker, der befinder sig i svære livssituationer. Mit fokus er voksne der mistrives, bliver stressede, frygter for forandring og frygter hvad andre tænker.
+Jeg er Socialrådgiver og Trivselsvejleder. Jeg har i mange år arbejdet med sygemeldte der frivilligt eller ufrivilligt må skifte spor. Mit fokus er voksne der mistrives, bliver stressede, frygter for forandring og frygter hvad andre tænker.
 
 Jeg tror på, at alle mennesker har ressourcerne til at komme på den rette vej, leve det liv der er bedst for dem - Det er naturligt at vi ikke kan se muligheder, men kun barriere, og derfor får mange desværre ikke det liv de ønsker sig.
 
