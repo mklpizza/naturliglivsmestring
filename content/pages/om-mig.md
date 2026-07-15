@@ -1,6 +1,6 @@
 ---
 title: Om mig
-image: /images/uploads/img_8831.jpg
+image: https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&auto=format&fit=crop&q=80
 imageAlt: Varm og nærværende person i naturlige omgivelser
 excerpt: Jeg er her, fordi jeg ved, hvor svært det kan være at bede om hjælp —
   og hvor meget det kan betyde.
@@ -31,7 +31,7 @@ Jeg tror på, at alle mennesker har ressourcerne til at komme på den rette vej,
 </div>
 <div>
 
-![Varm og nærværende person i naturlige omgivelser](https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80)
+![Varm og nærværende person i naturlige omgivelser](/images/uploads/img_8831.jpg)
 
 </div>
 </div>
