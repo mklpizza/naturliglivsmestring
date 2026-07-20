@@ -64,13 +64,13 @@ Alt sker i dit tempo. Ingen pres, ingen hurtige løsninger.
 
 Jeg arbejder primært med:
 
-**Angst** — generalangst, sociale angst, panikangst og bekymringer, der tager overhånd.
+**Mistrivsel -**Når du ved at du skal noget andet med livet, end være der hvor du er lige nu.
 
-**Stress** — både akut og kronisk stress, udbrændthed og det, der sker, når kroppen siger fra.
+**Stress**  -Når stress-fælder tager over, og du tror du bare skal blive ved at holde ud, lidt endnu.
 
-**Mistrivsel** — en vag, men tung fornemmelse af at have det svært. Af ikke at trives, selvom det ikke er til at sætte en præcis finger på.
+**Sunde grænser**  - Stoppe med at sige "ja" når du mener "nej", og sige "nej" når du mener "ja",
 
-**Manipulation** — at genkende og komme fri af manipulative mønstre, uanset om det er i parforhold, venskaber eller på arbejdet.
+**Sygemelding** — at forebygge sygemelding eller hjælpe med at få det bedste ud af en sygemelding du allerede er i.
 
 ## Praktisk information
 
