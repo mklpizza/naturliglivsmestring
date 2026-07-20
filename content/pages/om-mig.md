@@ -64,13 +64,13 @@ Alt sker i dit tempo. Ingen pres, ingen hurtige løsninger.
 
 Jeg arbejder primært med:
 
-**Mistrivsel -**Når du ved at du skal noget andet med livet, end være der hvor du er lige nu.
+**Mistrivsel -** Når du vil noget andet med livet, end være der hvor du er lige nu.
 
-**Stress**  -Når stress-fælder tager over, og du tror du bare skal blive ved at holde ud, lidt endnu.
+**Stress** -Når stress-fælder tager over, og du tror du bare skal blive ved at holde ud, lidt endnu.
 
 **Sunde grænser**  - Stoppe med at sige "ja" når du mener "nej", og sige "nej" når du mener "ja",
 
-**Sygemelding** — at forebygge sygemelding eller hjælpe med at få det bedste ud af en sygemelding du allerede er i.
+**Sygemelding** - Forebygge sygemelding eller hjælpe med at få det bedste ud af en sygemelding du allerede er i.
 
 ## Praktisk information
 
