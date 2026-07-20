@@ -68,7 +68,7 @@ Jeg arbejder primært med:
 
 **Stress** -Når stress-fælder tager over, og du tror du bare skal blive ved at holde ud, lidt endnu.
 
-**Sunde grænser**  - Stoppe med at sige "ja" når du mener "nej", og sige "nej" når du mener "ja",
+**Sunde grænser**  - Stoppe med at sige "ja" når du mener "nej", og sige "nej" når du mener "ja" -også i relationer.
 
 **Sygemelding** - Forebygge sygemelding eller hjælpe med at få det bedste ud af en sygemelding du allerede er i.
 
